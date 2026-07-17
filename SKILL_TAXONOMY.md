@@ -23,9 +23,13 @@ Explains how to use a library, CLI, or SDK correctly. Most of this repo — thes
 
 **Design frameworks (5):** `ui-ux-pro-max`, `interface-craft`, `emil-design-eng`, `design-taste-frontend`, `stitch-design-taste`
 
-## 2. Product Verification (0 skills)
+## 2. Product Verification (1 skill)
 
-Describes how to test and verify code behavior. **Gap in this repo.** Candidates to build:
+Describes how to test and verify code behavior.
+
+- `evidence-driven-testing` — records annotated screen-recording proof of UI behavior (structured test/assertion annotations) and posts the video + results summary to the PR and tracker issue. In the M6 Product pack.
+
+Candidates still to build:
 - A `lighthouse-audit` skill that runs Lighthouse CI with assertions
 - A `portco-demo-driver` that drives a portfolio company's app with Playwright
 - A `screenshot-diff` skill for visual regression testing
