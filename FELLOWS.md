@@ -356,13 +356,6 @@ Ongoing ops once the business is running. Metrics, unit economics, retention, ch
 
 Install these on top of your module pack if relevant.
 
-### `utopia-azraq-engagement` (48 skills)
-For anyone working on Azraq — IP defensibility, patents, Notion workflows, engine audits, risk modeling, contract review.
-
-```
-/plugin install utopia-azraq-engagement@skills
-```
-
 ### `utopia-quant-pricing` (21 skills)
 For pricing physical/emerging risks (insurance, climate, parametric products) using Bayesian reasoning and forecasting.
 

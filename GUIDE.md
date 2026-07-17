@@ -135,14 +135,9 @@ Install what matches your workflow:
 These packs bundle skills tailored to active engagements. Install on top of your cobuild/funds packs.
 
 ```
-# Azraq engagement (data-centre risk intelligence — IP, patents, moat, Notion, engine audits)
-/plugin install utopia-azraq-engagement@skills
-
 # Anyone pricing physical/emerging risks (Bayesian, forecasting, parametric insurance pricing)
 /plugin install utopia-quant-pricing@skills
 ```
-
-The Azraq pack bundles 47 skills across IP defensibility (patents, prior art, moat analysis, VRIO), Notion workflows (knowledge capture, meeting intelligence, research docs), engine audit (Trail of Bits security skills), risk matrix design crits, contract review, and quant pricing. Install once and have the full toolkit for the engagement.
 
 ---
 
