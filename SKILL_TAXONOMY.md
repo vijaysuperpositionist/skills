@@ -1,6 +1,6 @@
 # Skill Taxonomy
 
-The 82 skills in this repo mapped to the 9 categories from [Anthropic's Skills guide](https://medium.com/@tortmario/skills-for-claude-code-the-ultimate-guide-from-an-anthropic-engineer).
+The 83 skills in this repo mapped to the 9 categories from [Anthropic's Skills guide](https://medium.com/@tortmario/skills-for-claude-code-the-ultimate-guide-from-an-anthropic-engineer).
 
 The guide's insight: **skills that blur multiple categories confuse both Claude and users**. Use this map to:
 - Find the right skill for a job
@@ -100,10 +100,11 @@ Skills that don't fit the 9 categories cleanly — they modify Claude's behavior
 - `sketch-prompt` — generates sketch images via Flux
 - `architecture-diagram`, `diagram-design` — generate standalone HTML diagrams
 
-## Meta (2 skills)
+## Meta (3 skills)
 
 - `skillshare` — manages sync across AI tools
 - `find-skills` — discover and install skills
+- `agent-prd` — structured interview that produces an Agent PRD (planning document + work orders) before any agent code is written
 
 ## Key Observations
 
