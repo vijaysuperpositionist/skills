@@ -9,7 +9,7 @@ A shared library of AI workflows built specifically for Studio fellows. Install 
 
 ## What this is, in one sentence
 
-It's an "app store" of pre-built workflows for your AI. Each pack is mapped to a specific Cobuild module, so you only load what's relevant to where you are in the program.
+It's an "app store" of pre-built workflows for your AI. Four modules — GTM, Product, Investments, Founder Productivity — so you only load what's relevant.
 
 ## Why it matters
 
@@ -23,49 +23,47 @@ And get an output that already follows our methodology.
 
 ---
 
-## Quick Start (5 minutes, one-time setup)
+## Quick Start (~2 minutes)
 
-### Step 1 — Install Claude Code (if you haven't)
-
-Free, runs on Mac/Windows/Linux:
-
-```bash
-curl -fsSL https://claude.com/install.sh | sh
-```
-
-Or follow the [official install guide](https://docs.claude.com/en/docs/claude-code/quickstart).
-
-> **Don't want to use Claude Code?** Cursor, ChatGPT Codex, Windsurf, Gemini CLI, OpenCode, and others also work — they all support the same skill format. For Claude.ai web chat, see the FAQ at the bottom.
-
-### Step 2 — Register the marketplace
-
-Open Claude Code and type:
+**Easiest path:** open Claude Code and paste this:
 
 ```
-/plugin marketplace add The-Utopia-Studio/skills
+Install the Utopia Skills marketplace for me.
+
+1. Register the marketplace:
+   /plugin marketplace add The-Utopia-Studio/skills
+
+2. Install all four modules:
+   /plugin install utopia-gtm@skills
+   /plugin install utopia-product@skills
+   /plugin install utopia-investments@skills
+   /plugin install utopia-founder-productivity@skills
+
+3. Confirm what's installed and tell me how to update later with:
+   /plugin marketplace update skills
+
+If any step fails, explain what went wrong and how to fix it.
+Don't invent pack names — use only the four above.
 ```
 
-You'll see "marketplace registered." That's it for setup.
+Full instructions (Claude Code, Cursor, troubleshooting): **[INSTALL.md](./INSTALL.md)**
 
-### Step 3 — Install the pack for your current module
+### Manual steps (if you prefer)
 
-Just install the one pack for the Cobuild module you're in right now. Add others as you progress:
+1. Install Claude Code: `curl -fsSL https://claude.com/install.sh | sh` then run `claude`
+2. Register: `/plugin marketplace add The-Utopia-Studio/skills`
+3. Install what you need:
 
 ```
-/plugin install utopia-studio-cobuild-onboarding@skills      # M1
-/plugin install utopia-studio-cobuild-discovery@skills       # M2
-/plugin install utopia-studio-cobuild-concept@skills         # M3
-/plugin install utopia-studio-cobuild-legal@skills           # M4
-/plugin install utopia-studio-cobuild-brand@skills           # M5
-/plugin install utopia-studio-cobuild-product@skills         # M6
-/plugin install utopia-studio-cobuild-gtm@skills             # M7
-/plugin install utopia-studio-cobuild-fundraising@skills     # M8
-/plugin install utopia-studio-cobuild-ops@skills             # M9
+/plugin install utopia-product@skills                # Discovery, design, build, deploy
+/plugin install utopia-gtm@skills                    # Sales, marketing, growth
+/plugin install utopia-investments@skills            # Fundraising, DD, modeling
+/plugin install utopia-founder-productivity@skills   # Onboarding, legal, agents
 ```
 
-### Step 4 — Just use Claude normally
+Skills auto-trigger based on what you ask. If Claude picks the wrong one, just say which to use.
 
-The skills auto-trigger based on what you ask. You don't have to name them. If Claude picks the wrong one, just say which to use.
+> **Don't want Claude Code?** Cursor and others work too — see [INSTALL.md](./INSTALL.md).
 
 ---
 
@@ -352,15 +350,12 @@ Ongoing ops once the business is running. Metrics, unit economics, retention, ch
 
 ---
 
-## 🎯 Specialty Packs (optional)
+## 🎯 Quant pricing
 
-Install these on top of your module pack if relevant.
-
-### `utopia-quant-pricing` (21 skills)
-For pricing physical/emerging risks (insurance, climate, parametric products) using Bayesian reasoning and forecasting.
+Bayesian reasoning, forecasting, and auction-theory skills for pricing physical/emerging risks now live in **`utopia-investments`** — no separate pack.
 
 ```
-/plugin install utopia-quant-pricing@skills
+/plugin install utopia-investments@skills
 ```
 
 ---
@@ -443,7 +438,7 @@ Yes — `/plugin uninstall <pack-name>@skills`.
 ```
 1. Install Claude Code:               curl -fsSL https://claude.com/install.sh | sh
 2. Register the marketplace:          /plugin marketplace add The-Utopia-Studio/skills
-3. Install your current module pack:  /plugin install utopia-studio-cobuild-<module>@skills
+3. Install your current module pack:  /plugin install utopia-<module>@skills   # gtm | product | investments | founder-productivity
                                       where <module> is: onboarding, discovery, concept, legal,
                                       brand, product, gtm, fundraising, or ops
 ```

@@ -5,97 +5,31 @@
     "email": "karanmjpinto@gmail.com",
     "url": "https://github.com/The-Utopia-Studio"
   },
-  "description": "The Utopia Studio's skill marketplace. Two tracks: Studio Cobuild packs (for fellows, mapped to M1-M9 modules) and Funds packs (for internal investment and DD work). Maintained by Karan Pinto.",
+  "description": "The Utopia Studio's skill marketplace. Four modules: GTM, Product, Investments, and Founder Productivity. Maintained by Karan Pinto.",
   "plugins": [
     {
-      "name": "utopia-studio-cobuild-onboarding",
-      "source": "./plugins/utopia-studio-cobuild-onboarding",
-      "description": "M1 Fellow Onboarding — orientation, market sizing, stakeholder mapping, frameworks for getting started. Install this first when a new fellow joins.",
-      "version": "1.0.0"
+      "name": "utopia-gtm",
+      "source": "./plugins/utopia-gtm",
+      "description": "Go-to-Market — positioning, sales, outbound, content, growth, retention, and distribution. Everything to launch and grow.",
+      "version": "2.1.0"
     },
     {
-      "name": "utopia-studio-cobuild-discovery",
-      "source": "./plugins/utopia-studio-cobuild-discovery",
-      "description": "M2 Discovery & Problem Validation — customer interviews, JTBD, opportunity solution trees, problem framing, assumption mapping, and first-iteration canvases.",
-      "version": "1.0.0"
+      "name": "utopia-product",
+      "source": "./plugins/utopia-product",
+      "description": "Product — discovery, PRDs, design, build, deploy, and product metrics. Everything to define and ship the product.",
+      "version": "2.0.0"
     },
     {
-      "name": "utopia-studio-cobuild-concept",
-      "source": "./plugins/utopia-studio-cobuild-concept",
-      "description": "M3 Concept & Solution Design — turn validated problems into solutions. PRDs, user stories, recommendation canvases, prototyping, early design critiques, and architecture sketches.",
-      "version": "1.0.0"
+      "name": "utopia-investments",
+      "source": "./plugins/utopia-investments",
+      "description": "Investments — due diligence, financial modeling, valuation, capital markets, fundraising decks, and quant pricing. For funds team and fundraising.",
+      "version": "2.0.0"
     },
     {
-      "name": "utopia-studio-cobuild-legal",
-      "source": "./plugins/utopia-studio-cobuild-legal",
-      "description": "M4 Legal & Entity Setup — NDAs, privacy policies, resume/hiring docs, press release templates. GAP: MENA/GCC jurisdiction-aware cap table and entity setup — build as proprietary Studio skill.",
-      "version": "1.0.0"
-    },
-    {
-      "name": "utopia-studio-cobuild-brand",
-      "source": "./plugins/utopia-studio-cobuild-brand",
-      "description": "M5 Brand & Identity — visual identity, brand narrative, naming, voice, and social/graphic design assets. Covers Efecto design, Impeccable, and brand voice frameworks.",
-      "version": "1.0.0"
-    },
-    {
-      "name": "utopia-studio-cobuild-product",
-      "source": "./plugins/utopia-studio-cobuild-product",
-      "description": "M6 Product & Technology — build the actual product. Design polish (Impeccable suite), deployment (Railway, Vercel), production readiness, ML integration, and architecture diagrams. For deep specialization see the Railway, Vercel, or ML-specific skills in the /skills folder.",
-      "version": "1.0.0"
-    },
-    {
-      "name": "utopia-studio-cobuild-gtm",
-      "source": "./plugins/utopia-studio-cobuild-gtm",
-      "description": "M7 Go-to-Market — positioning, hook, copywriting, content strategy, BD, outbound sales, and distribution. Covers the full launch-to-growth motion for founders.",
-      "version": "1.0.0"
-    },
-    {
-      "name": "utopia-studio-cobuild-fundraising",
-      "source": "./plugins/utopia-studio-cobuild-fundraising",
-      "description": "M8 Fundraising Prep — investor-ready materials. Pitch decks (Utopia-branded for syndication or adapted for portco use), financial models, valuations, competitive analysis, and data packs.",
-      "version": "1.0.0"
-    },
-    {
-      "name": "utopia-studio-cobuild-ops",
-      "source": "./plugins/utopia-studio-cobuild-ops",
-      "description": "M9 Operations & Finance — ongoing ops once the business is running. Metrics, unit economics, retention, churn, onboarding CRO, pricing, roadmap, and customer ops for founders scaling retained revenue.",
-      "version": "1.0.0"
-    },
-    {
-      "name": "utopia-funds-dd",
-      "source": "./plugins/utopia-funds-dd",
-      "description": "Utopia Funds — Technical Due Diligence. Internal skills for evaluating startups before investment: tech stack audits, security review, cost analysis, DB/infra review, and TDD report generation.",
-      "version": "1.0.0"
-    },
-    {
-      "name": "utopia-funds-finance",
-      "source": "./plugins/utopia-funds-finance",
-      "description": "Utopia Funds — Financial Modeling & IB Toolkit. Internal skills for valuation, deal modeling, comp analysis, earnings analysis, tear sheets, and pitch deck population for the investment team.",
-      "version": "1.0.0"
-    },
-    {
-      "name": "utopia-funds-markets",
-      "source": "./plugins/utopia-funds-markets",
-      "description": "Utopia Funds — Capital Markets. Public markets and trading skills for fellows transitioning into sell-side roles: bonds, FX, options, swaps, macro rates, equity research. Not for VC workflows.",
-      "version": "1.0.0"
-    },
-    {
-      "name": "utopia-funds-research",
-      "source": "./plugins/utopia-funds-research",
-      "description": "Utopia Funds — Research & Knowledge Management. Internal skills for the investment team's research workflow: Obsidian vault management, markdown notes, canvases, web extraction, papers, and Proof collaborative docs.",
-      "version": "1.0.0"
-    },
-    {
-      "name": "utopia-quant-pricing",
-      "source": "./plugins/utopia-quant-pricing",
-      "description": "Quantitative pricing & physical risk modeling — Bayesian reasoning, expected value, forecasting, adverse selection, auction theory, and causal inference. For pricing physical/emerging risks (data centre infrastructure, climate, parametric insurance) or any work where you need to price uncertainty under information asymmetry.",
-      "version": "1.0.0"
-    },
-    {
-      "name": "utopia-internal-agents",
-      "source": "./plugins/utopia-internal-agents",
-      "description": "Utopia's named internal AI agents — Ada (DD analyst), Khalil (pitch deck builder), Salim (Studio fellow coach), plus agent-persona-builder for designing new agents and agent-prd for writing the Agent PRD that must exist before any agent code is written. Each agent has a distinct personality, durable cross-session memory, and clear operating rules. Use 'as Ada' / 'as Khalil' / 'as Salim' to invoke a specific persona, or trigger them via their natural language patterns (run DD, build a deck, I'm stuck). Methodology adapted from Jack & Jill's agent-builder framework.",
-      "version": "1.0.0"
+      "name": "utopia-founder-productivity",
+      "source": "./plugins/utopia-founder-productivity",
+      "description": "Founder Productivity — onboarding frameworks, legal docs, knowledge management, agents, and operator tools that don't fit GTM, Product, or Investments.",
+      "version": "2.0.0"
     }
   ]
 }

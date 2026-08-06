@@ -14,7 +14,7 @@ Based on the pattern Anthropic's Claude Code team uses internally. The goal: let
     │
     ▼  (battle-tested, actually used, consistent quality)
     │
- skills/<category>/  ← official source of truth
+ skills/<module>/     ← official source of truth (gtm|product|investments|founder-productivity)
     │
     ▼
  packs.config.json ← added to a pack so team installs it
@@ -71,26 +71,21 @@ A skill is ready to graduate when it meets all of these:
 
 **To graduate:**
 
-1. Move `skills/sandbox/<skill>/` → `skills/<category>/<skill>/` (create new category if needed)
-2. Add the skill name to one or more packs in `packs.config.json`
+1. Move `skills/sandbox/<skill>/` → `skills/<module>/<skill>/` (one of: `gtm`, `product`, `investments`, `founder-productivity`)
+2. Add the skill name to that module's pack in `packs.config.json`
 3. Run `./build-packs.sh`
 4. Open a PR explaining: what problem it solves, who asked for it, gotchas found so far
 
-## Categories
+## Modules
 
-This repo uses the 9-category taxonomy from [Anthropic's Skills guide](./SKILL_TAXONOMY.md). When proposing, think about which category your skill fits in:
+Skills live in one of four modules. When proposing, pick the best fit:
 
-1. **Library & API References** — explains how to use a library/CLI/SDK correctly
-2. **Product Verification** — describes how to test and verify code behavior
-3. **Data Retrieval & Analysis** — connects to data stacks
-4. **Business Process & Team Automation** — automates repetitive workflows
-5. **Code Templates & Scaffolding** — generates framework boilerplate
-6. **Code Quality & Code Review** — enforces quality standards
-7. **CI/CD & Deployment** — ships code
-8. **Runbooks** — investigations from symptom to report
-9. **Infrastructure Operations** — routine maintenance and ops
+1. **GTM** (`skills/gtm/`) — sales, marketing, growth, retention, distribution
+2. **Product** (`skills/product/`) — discovery, design, build, deploy, product metrics
+3. **Investments** (`skills/investments/`) — DD, finance, fundraising, markets, quant
+4. **Founder Productivity** (`skills/founder-productivity/`) — everything else (onboarding, legal, knowledge tools, agents)
 
-Skills that blur multiple categories tend to confuse both Claude and the user. Pick one.
+If a skill blurs modules, put it in Founder Productivity rather than duplicating. See [SKILL_TAXONOMY.md](./SKILL_TAXONOMY.md).
 
 ## Curation Principles
 

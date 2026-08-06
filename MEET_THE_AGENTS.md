@@ -21,7 +21,7 @@ We've built three internal AI agents. Each is good at one specific Utopia job:
 
 Plus an **`agent-persona-builder`** skill — use it to design new agents for your portco or for specific Utopia workflows.
 
-Install: `/plugin install utopia-internal-agents@skills`
+Install: `/plugin install utopia-founder-productivity@skills`
 
 ---
 
@@ -155,7 +155,7 @@ Inside Claude Code:
 
 ```
 /plugin marketplace add The-Utopia-Studio/skills
-/plugin install utopia-internal-agents@skills
+/plugin install utopia-founder-productivity@skills
 ```
 
 (If you already have the marketplace registered, just run the second command.)
@@ -260,7 +260,7 @@ Tell me. The most likely cause is voice drift — fix is to update MEMORY.md wit
 ```
 # Install the agents
 /plugin marketplace add The-Utopia-Studio/skills
-/plugin install utopia-internal-agents@skills
+/plugin install utopia-founder-productivity@skills
 
 # Try them
 "Ada, run DD on [GitHub URL]"

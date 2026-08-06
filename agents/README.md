@@ -38,7 +38,8 @@ Plus a **deployable copy** at `skills/agents/<name>/SKILL.md` that makes the age
 
 ```
 /plugin marketplace add The-Utopia-Studio/skills
-/plugin install utopia-internal-agents@skills
+/plugin install utopia-founder-productivity@skills
+/plugin install utopia-investments@skills   # for Ada + Khalil
 ```
 
 That installs all four: `agent-persona-builder`, `ada`, `khalil`, `salim`.

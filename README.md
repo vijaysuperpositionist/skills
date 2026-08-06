@@ -2,11 +2,36 @@
 
 A curated collection of AI coding skills for Claude Code, Cursor, Windsurf, and any tool that supports the [Agent Skills Standard](https://github.com/runkids/skillshare). Also serves as a **Claude Code plugin marketplace** with curated packs for Utopia Capital teams and fellows.
 
-> 📘 **Team / fellow / funds member?** Start with the [**Team Guide**](./GUIDE.md) — a step-by-step, non-technical intro to installing and using this marketplace. Share the link freely.
+> **New here?** → [**INSTALL.md**](./INSTALL.md) — copy one prompt, done in ~2 minutes.
+>
+> Team / fellow guide: [GUIDE.md](./GUIDE.md) · [FELLOWS.md](./FELLOWS.md)
 
-## Install as a Plugin Marketplace (Recommended for Teams)
+## Quick install (paste into Claude Code)
 
-This repo is a Claude Code plugin marketplace. Team members register it once, then install only the packs they need.
+```
+Install the Utopia Skills marketplace for me.
+
+1. Register the marketplace:
+   /plugin marketplace add The-Utopia-Studio/skills
+
+2. Install all four modules:
+   /plugin install utopia-gtm@skills
+   /plugin install utopia-product@skills
+   /plugin install utopia-investments@skills
+   /plugin install utopia-founder-productivity@skills
+
+3. Confirm what's installed and tell me how to update later with:
+   /plugin marketplace update skills
+
+If any step fails, explain what went wrong and how to fix it.
+Don't invent pack names — use only the four above.
+```
+
+Full walkthrough (Claude Code, Cursor, troubleshooting): **[INSTALL.md](./INSTALL.md)**
+
+## Install as a Plugin Marketplace
+
+This repo is a Claude Code plugin marketplace. Register once, then install the packs you need.
 
 **1. Register the marketplace (one-time):**
 
@@ -16,31 +41,11 @@ This repo is a Claude Code plugin marketplace. Team members register it once, th
 
 **2. Install a pack:**
 
-Two tracks: **Studio Cobuild packs** for fellows (mapped to M1–M9 modules) and **Funds packs** for internal Utopia Capital work.
-
 ```
-# Studio Cobuild — for fellows building companies (M1–M9)
-/plugin install utopia-studio-cobuild-onboarding@skills     # M1 Fellow Onboarding
-/plugin install utopia-studio-cobuild-discovery@skills      # M2 Discovery & Problem Validation
-/plugin install utopia-studio-cobuild-concept@skills        # M3 Concept & Solution Design
-/plugin install utopia-studio-cobuild-legal@skills          # M4 Legal & Entity Setup
-/plugin install utopia-studio-cobuild-brand@skills          # M5 Brand & Identity
-/plugin install utopia-studio-cobuild-product@skills        # M6 Product & Technology
-/plugin install utopia-studio-cobuild-gtm@skills            # M7 Go-to-Market
-/plugin install utopia-studio-cobuild-fundraising@skills    # M8 Fundraising Prep
-/plugin install utopia-studio-cobuild-ops@skills            # M9 Operations & Finance
-
-# Funds — for Utopia's internal investment and DD team
-/plugin install utopia-funds-dd@skills          # Technical Due Diligence
-/plugin install utopia-funds-finance@skills     # Financial modeling & IB toolkit
-/plugin install utopia-funds-markets@skills     # Capital markets & trading
-/plugin install utopia-funds-research@skills    # Obsidian, markdown, web research
-
-# Engagement-specific packs — for active portfolio engagements
-/plugin install utopia-quant-pricing@skills     # Bayesian pricing, forecasting, physical risk modeling
-
-# Internal agents — named personas with distinct voices and persistent memory
-/plugin install utopia-internal-agents@skills   # Ada (DD), Khalil (decks), Salim (fellow coach) + agent-persona-builder + agent-prd
+/plugin install utopia-gtm@skills                    # Go-to-Market (sales, marketing, growth)
+/plugin install utopia-product@skills                # Product (discovery, design, build, deploy)
+/plugin install utopia-investments@skills            # Investments (DD, modeling, fundraising, markets)
+/plugin install utopia-founder-productivity@skills   # Founder Productivity (onboarding, legal, knowledge, agents)
 ```
 
 **3. Update packs as they change:**
@@ -77,79 +82,31 @@ cp -r skills/*/* ~/.cursor/skills/     # Cursor
 cp -r skills/*/* ~/.windsurf/skills/   # Windsurf
 ```
 
-**Cherry-pick a category:**
+**Cherry-pick a module:**
 
 ```bash
-# Only want Railway skills?
-cp -r skills/railway/* ~/.claude/skills/
+# Only want GTM?
+cp -r skills/gtm/* ~/.claude/skills/
 
-# Only want HuggingFace skills?
-cp -r skills/huggingface/* ~/.claude/skills/
+# Only want Product?
+cp -r skills/product/* ~/.claude/skills/
 
-# Only want production readiness?
-cp -r skills/production-readiness/* ~/.claude/skills/
+# Only want Investments?
+cp -r skills/investments/* ~/.claude/skills/
 ```
 
 ## Available Packs
 
-Each pack bundles a set of skills for a specific workflow. Install only what you need — keeps your context lean.
-
-### Studio Cobuild packs (for fellows, mapped to M1–M9 modules)
-
-Each pack maps 1:1 to a module in the Studio's Cobuild curriculum. Fellows install the pack for the module they're working on — keeps context lean and focused on the current stage.
+Each pack is one module. Install only what you need — keeps your context lean.
 
 | Module | Pack | # | What it covers |
 |--------|------|---|----------------|
-| **M1** | `utopia-studio-cobuild-onboarding` | 12 | Fellow Onboarding — market sizing (TAM/SAM/SOM), stakeholder mapping, PESTEL/Porter/SWOT, prioritization frameworks |
-| **M2** | `utopia-studio-cobuild-discovery` | 19 | Discovery & Problem Validation — customer interviews, JTBD, opportunity solution trees, assumption mapping, canvases |
-| **M3** | `utopia-studio-cobuild-concept` | 21 | Concept & Solution Design — PRDs, user stories, recommendation canvases, business models, prototyping, architecture diagrams |
-| **M4** | `utopia-studio-cobuild-legal` | 5 | Legal & Entity Setup — NDA, privacy policy, hiring docs, press release. *Gap: MENA/GCC jurisdiction* |
-| **M5** | `utopia-studio-cobuild-brand` | 16 | Brand & Identity — visual identity (Efecto), brand narrative, naming, voice guidelines, design systems |
-| **M6** | `utopia-studio-cobuild-product` | 31 | Product & Technology — Impeccable design suite, deployment (Railway, Vercel), production readiness, architecture, ML |
-| **M7** | `utopia-studio-cobuild-gtm` | 30 | Go-to-Market — positioning, hook, copywriting, content, BD, outbound sales, distribution |
-| **M8** | `utopia-studio-cobuild-fundraising` | 16 | Fundraising Prep — pitch decks (Utopia-branded), financial models, valuations, competitive analysis, data packs |
-| **M9** | `utopia-studio-cobuild-ops` | 27 | Operations & Finance — North Star metrics, unit economics, retention, churn, onboarding CRO, pricing, roadmap |
+| **GTM** | `utopia-gtm` | 73 | Positioning, sales, outbound, content, growth, retention, distribution |
+| **Product** | `utopia-product` | 128 | Discovery, PRDs, design, build, deploy (Railway/Vercel/HF), product metrics |
+| **Investments** | `utopia-investments` | 60 | DD, financial modeling, valuation, capital markets, fundraising decks, quant pricing |
+| **Founder Productivity** | `utopia-founder-productivity` | 30 | Onboarding frameworks, legal docs, Obsidian/Proof, agents (Salim + builders), operator tools |
 
-### Funds packs (for Utopia Capital's internal team)
-
-Not for fellows — these are for the investment team doing DD, modeling, and research.
-
-| Pack | # | What it covers |
-|------|---|----------------|
-| **utopia-funds-dd** | 6 | Technical Due Diligence — tech audits, security review, TDD reports, infra review |
-| **utopia-funds-finance** | 16 | Financial Modeling & IB Toolkit — DCF, LBO, comps, tear sheets, deck work |
-| **utopia-funds-markets** | 10 | Capital Markets — bonds, FX, options, macro rates, equity research (for fellows going sell-side) |
-| **utopia-funds-research** | 6 | Research & Knowledge Management — Obsidian, markdown, web extraction, papers |
-
-### Engagement-specific & specialty packs
-
-Built for active portfolio engagements or specialty workflows. Install on top of the cobuild/funds packs as needed.
-
-| Pack | # | What it covers |
-|------|---|----------------|
-| **utopia-quant-pricing** | 21 | **Quantitative pricing & physical risk modeling** — Bayesian reasoning, expected value, forecasting, adverse selection, auction theory, causal inference. For any work where you're pricing uncertainty under information asymmetry (data centre risk, climate, parametric insurance, emerging risks). |
-| **utopia-internal-agents** | 5 | **Named Utopia AI agents with distinct personalities and persistent memory** — `Ada` (DD analyst, "what does the code actually do?"), `Khalil` (pitch deck builder, "what's the one thing they should remember?"), `Salim` (Studio fellow coach, Socratic, never gives the answer). Plus `agent-persona-builder` for designing new agents and `agent-prd` for producing the Agent PRD planning document before any agent code is written. See [agents/README.md](./agents/README.md). |
-
-### Skill sources
-
-Skills across the cobuild packs come from the best public repos for each layer:
-- **Discovery (M2):** [phuryn/pm-skills](https://github.com/phuryn/pm-skills), [deanpeters/Product-Manager-Skills](https://github.com/deanpeters/Product-Manager-Skills)
-- **Concept (M3):** [phuryn/pm-skills](https://github.com/phuryn/pm-skills), [deanpeters/Product-Manager-Skills](https://github.com/deanpeters/Product-Manager-Skills)
-- **Brand (M5):** [pablostanley/efecto-plugin](https://github.com/pablostanley/efecto-plugin), [pbakaus/impeccable](https://github.com/pbakaus/impeccable), [emilkowalski/skill](https://github.com/emilkowalski/skill), [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)
-- **Product (M6):** [osmanio2/vibe-to-prod](https://github.com/osmanio2/vibe-to-prod), [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills), Railway skills, [pbakaus/impeccable](https://github.com/pbakaus/impeccable)
-- **GTM (M7):** [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills), [chadboyda/agent-gtm-skills](https://github.com/chadboyda/agent-gtm-skills), [gtmagents/gtm-agents](https://github.com/gtmagents/gtm-agents)
-- **Fundraising (M8) & Funds Finance:** [anthropics/financial-services-plugins](https://github.com/anthropics/financial-services-plugins), plus proprietary Utopia `pitch-deck` and `technical-dd`
-- **Ops (M9):** [phuryn/pm-skills](https://github.com/phuryn/pm-skills), [lyndonkl/claude](https://github.com/lyndonkl/claude), [Digidai/product-manager-skills](https://github.com/Digidai/product-manager-skills), [gtmagents/gtm-agents](https://github.com/gtmagents/gtm-agents)
-- **Quant pricing:** [lyndonkl/claude](https://github.com/lyndonkl/claude) (Bayesian, forecasting, auction-theory skills curated into a dedicated pack)
-
-### Honest gap map
-
-The public ecosystem is richest for GTM and product discovery, decent for financial modeling, and weakest for:
-
-1. **Agentic customer ops & NPS tracking** (M9 gap) — no strong dedicated skill repo exists
-2. **GCC/MENA-aware legal, compliance, and cap table** (M4 gap) — nothing jurisdiction-specific
-
-Both are candidates to build as proprietary Studio skills — high-value, jurisdiction-specific, unlikely to appear in the open ecosystem.
+Skills live under `skills/<module>/`. Anything that doesn't fit GTM, Product, or Investments goes in Founder Productivity.
 
 See [`packs.config.json`](./packs.config.json) for the exact skill list in each pack.
 
@@ -183,7 +140,7 @@ Want to propose a new skill, or understand the curation process? See:
 
 - **[`CONTRIBUTING.md`](./CONTRIBUTING.md)** — sandbox → pack graduation flow, curation principles, how to write good skills
 - **[`DESIGN_GUIDE.md`](./DESIGN_GUIDE.md)** — full index of all 42 design skills (foundations, Impeccable, Taste, Efecto, brand). Workflows, sources, open questions for design-team review.
-- **[`SKILL_TAXONOMY.md`](./SKILL_TAXONOMY.md)** — all 82 skills mapped to the 9-category taxonomy from Anthropic's Skills guide. Shows gaps (verification, data retrieval, runbooks) and overlaps.
+- **[`SKILL_TAXONOMY.md`](./SKILL_TAXONOMY.md)** — skills mapped to the four modules (GTM, Product, Investments, Founder Productivity) from Anthropic's Skills guide. Shows gaps (verification, data retrieval, runbooks) and overlaps.
 - **[`skills/sandbox/`](./skills/sandbox/)** — staging area for experimental skills before they graduate
 - **[`hooks/README.md`](./hooks/README.md)** — optional skill-usage logging hook, so you can see which skills are actually used
 
@@ -193,7 +150,7 @@ Some skills call other skills. For example, `impeccable` orchestrates the full d
 
 This matters when choosing packs:
 - Installing a single skill that depends on others may silently degrade if the dependencies aren't installed
-- `utopia-design-pack` bundles all 17 Impeccable skills together so composition works end-to-end
+- `utopia-product` bundles the Impeccable design suite so composition works end-to-end
 - If you cherry-pick, check the skill's SKILL.md for "related skills" references
 
 There's no explicit dependency system yet — Claude invokes related skills by name, which only works if they're installed.

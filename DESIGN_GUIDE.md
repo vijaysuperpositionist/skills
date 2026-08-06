@@ -13,8 +13,8 @@ Each skill links to its source on GitHub — click through to read the full inst
 To install all design skills at once, fellows install the **brand pack** (M5) or **product pack** (M6):
 
 ```
-/plugin install utopia-studio-cobuild-brand@skills      # M5 — design, identity, narrative
-/plugin install utopia-studio-cobuild-product@skills    # M6 — full Impeccable workflow + deploy
+/plugin install utopia-product@skills    # Design systems, Impeccable, deploy
+/plugin install utopia-gtm@skills        # Brand narrative, naming (product-name lives in GTM)
 ```
 
 Skills are auto-loaded; just describe what you want and the right one fires.
@@ -207,9 +207,9 @@ The 42 design skills are bundled into these packs:
 
 | Module | Pack | Design skills included |
 |--------|------|-----------------------|
-| **M3 Concept** | `utopia-studio-cobuild-concept` | sketch-prompt, interface-craft, shape, critique, architecture-diagram, diagram-design, ui-ux-pro-max |
-| **M5 Brand** | `utopia-studio-cobuild-brand` | All 3 Efecto + 6 Taste skills + emil-design-eng + impeccable + product-name + brand narrative skills + sketch-prompt + hallmark |
-| **M6 Product** | `utopia-studio-cobuild-product` | Full Impeccable workflow (shape → impeccable → critique → audit → polish) + interface-craft + hallmark |
+| **M3 Concept** | `utopia-product` | sketch-prompt, interface-craft, shape, critique, architecture-diagram, diagram-design, ui-ux-pro-max |
+| **M5 Brand** | `utopia-product` / `utopia-gtm` | All 3 Efecto + 6 Taste skills + emil-design-eng + impeccable + product-name + brand narrative skills + sketch-prompt + hallmark |
+| **M6 Product** | `utopia-product` | Full Impeccable workflow (shape → impeccable → critique → audit → polish) + interface-craft + hallmark |
 
 See [`README.md`](./README.md) for the full pack structure.
 
