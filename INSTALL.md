@@ -2,6 +2,15 @@
 
 **Time:** ~2 minutes · **Hardest part:** copying and pasting
 
+Four modules · **301 skills** · Claude Code plugin marketplace for The Utopia Studio.
+
+| Module | Pack | For… |
+|--------|------|------|
+| GTM | `utopia-gtm` | Sales, marketing, growth, RevOps |
+| Product | `utopia-product` | Discovery, design, build, deploy |
+| Investments | `utopia-investments` | DD, modeling, fundraising |
+| Founder Productivity | `utopia-founder-productivity` | Onboarding, legal, notes, agents |
+
 ---
 
 ## The 30-second version

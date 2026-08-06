@@ -2,7 +2,7 @@
   "_comment": "Edit this file to add or modify packs. Then run ./build-packs.sh to regenerate the marketplace. Each pack's skills are COPIED from /skills/<module>/<skill>/ into /plugins/<pack>/skills/. Four modules: utopia-gtm, utopia-product, utopia-investments, utopia-founder-productivity.",
   "marketplace": {
     "name": "skills",
-    "description": "The Utopia Studio's skill marketplace. Four modules: GTM, Product, Investments, and Founder Productivity. Maintained by Karan Pinto.",
+    "description": "The Utopia Studio's skill marketplace. Four modules \u2014 GTM, Product, Investments, and Founder Productivity \u2014 301 skills for founders, fellows, and the funds team. Maintained by Karan Pinto.",
     "owner": {
       "name": "The Utopia Studio",
       "email": "karanmjpinto@gmail.com",
@@ -12,7 +12,7 @@
   "packs": [
     {
       "name": "utopia-gtm",
-      "description": "Go-to-Market \u2014 positioning, sales, outbound, content, growth, retention, and distribution. Everything to launch and grow.",
+      "description": "Go-to-Market \u2014 positioning, sales, outbound, signals, content, paid, RevOps, retention, and agent governance. Everything to launch and grow.",
       "version": "2.1.0",
       "keywords": [
         "gtm",
