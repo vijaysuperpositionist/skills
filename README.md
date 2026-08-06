@@ -1,14 +1,27 @@
 # Utopia Skills
 
-The Utopia Studio's **AI skill marketplace** — 301 production skills across four modules for Claude Code, Cursor, and any tool that supports the [Agent Skills Standard](https://agentskills.io).
+[![skills.sh](https://skills.sh/b/The-Utopia-Studio/skills)](https://skills.sh/The-Utopia-Studio/skills)
 
-Built for founders, fellows, and the funds team: go-to-market, product, investments, and operator workflows.
+**The best GTM skill pack for AI agents** — plus Product, Investments, and Founder Productivity.
 
-> **New here?** → [**INSTALL.md**](./INSTALL.md) — one prompt, ~2 minutes.
->
-> Team guide: [GUIDE.md](./GUIDE.md) · Fellows: [FELLOWS.md](./FELLOWS.md) · Taxonomy: [SKILL_TAXONOMY.md](./SKILL_TAXONOMY.md)
+301 production skills for Claude Code, Cursor, and any tool that supports the [Agent Skills Standard](https://agentskills.io). Operator judgment, not tip lists.
 
-## Quick install (paste into Claude Code)
+> **Site:** [the-utopia-studio.github.io/skills](https://the-utopia-studio.github.io/skills) · **Install:** [INSTALL.md](./INSTALL.md) (~2 minutes)
+
+## Why Utopia Skills
+
+skills.sh is flooded with unverified dumps. Utopia ships **curated playbooks**: rubrics, approval rails, deliverability, deal velocity, warm intros, tech DD, pitch decks — adapted from Studio and funds-team work.
+
+| You want… | Install |
+|-----------|---------|
+| GTM that actually closes | `utopia-gtm` |
+| Discovery → design → deploy | `utopia-product` |
+| DD, modeling, fundraising | `utopia-investments` |
+| Onboarding, notes, agents | `utopia-founder-productivity` |
+
+## Quick install (Claude Code)
+
+Paste into Claude Code:
 
 ```
 Install the Utopia Skills marketplace for me.
@@ -29,82 +42,66 @@ If any step fails, explain what went wrong and how to fix it.
 Don't invent pack names — use only the four above.
 ```
 
-Already installed? Refresh with:
+Already installed? Refresh:
 
 ```
 /plugin marketplace update skills
 ```
 
-Full walkthrough (Claude Code, Cursor, troubleshooting): **[INSTALL.md](./INSTALL.md)**
+## Single-skill installs (share these)
+
+```bash
+npx skills add The-Utopia-Studio/skills --skill cold-email
+npx skills add The-Utopia-Studio/skills --skill outreach-execution
+npx skills add The-Utopia-Studio/skills --skill account-tier-scoring
+npx skills add The-Utopia-Studio/skills --skill pitch-deck
+npx skills add The-Utopia-Studio/skills --skill technical-dd
+npx skills add The-Utopia-Studio/skills --skill impeccable
+```
+
+Full library:
+
+```bash
+npx skills add The-Utopia-Studio/skills
+```
 
 ## The four modules
-
-Install only what you need — keeps context lean.
 
 | Module | Pack | Skills | Covers |
 |--------|------|--------|--------|
 | **GTM** | `utopia-gtm` `v2.1.0` | 83 | Positioning, sales, outbound, signals, content, paid, RevOps, retention |
-| **Product** | `utopia-product` `v2.0.0` | 128 | Discovery, PRDs, design (Impeccable/Taste), build, deploy, product metrics |
-| **Investments** | `utopia-investments` `v2.0.0` | 60 | Technical DD, modeling, valuation, capital markets, fundraising decks, quant |
-| **Founder Productivity** | `utopia-founder-productivity` `v2.0.0` | 30 | Onboarding frameworks, legal docs, Obsidian/Proof, agents, meta tools |
+| **Product** | `utopia-product` `v2.0.0` | 128 | Discovery, PRDs, design, build, deploy, product metrics |
+| **Investments** | `utopia-investments` `v2.0.0` | 60 | DD, modeling, valuation, capital markets, fundraising decks |
+| **Founder Productivity** | `utopia-founder-productivity` `v2.0.0` | 30 | Onboarding, legal, Obsidian, agents, meta tools |
 
-```
-/plugin install utopia-gtm@skills
-/plugin install utopia-product@skills
-/plugin install utopia-investments@skills
-/plugin install utopia-founder-productivity@skills
-```
+Exact lists: [`packs.config.json`](./packs.config.json).
 
-Exact skill lists: [`packs.config.json`](./packs.config.json).
-
-### GTM highlights (`utopia-gtm`)
-
-Positioning → pipeline → retention, plus agent governance for AI-assisted GTM.
+### GTM highlights
 
 | Skill | Use when… |
 |-------|-----------|
-| `gtm-strategy` / `positioning-icp` | Defining motion, ICP, and positioning |
-| `cold-email` / `outreach-execution` | Writing outbound with approval rails |
-| `signal-anchored-message` / `account-tier-scoring` | Turning intent into prioritized outreach |
-| `warm-intro-intelligence` | Finding warm paths into target accounts |
-| `deal-velocity-engineer` / `revops-forecasting` | Fixing stalled deals and forecast accuracy |
-| `call-scorecards` / `earned-autonomy` | Coaching calls and deciding how much agents may do unattended |
-| `email-deliverability` / `cold-offer-architect` | Inbox placement and offer quality before copy |
+| `cold-email` / `outreach-execution` | Outbound with peer tone + approval rails |
+| `signal-anchored-message` / `account-tier-scoring` | Intent → prioritized outreach |
+| `warm-intro-intelligence` | Warm paths into target accounts |
+| `deal-velocity-engineer` / `revops-forecasting` | Stalled deals + forecast accuracy |
+| `call-scorecards` / `earned-autonomy` | Call coaching + agent autonomy levels |
+| `email-deliverability` / `cold-offer-architect` | Inbox placement + offer quality before copy |
 
-### Product highlights (`utopia-product`)
+## Submit a skill with your AI
 
-Discovery through ship — design systems, deploy targets, and verification.
+Paste this into Claude, Cursor, or any capable agent:
 
-| Area | Examples |
-|------|----------|
-| Discovery & PRDs | `jobs-to-be-done`, `create-prd`, `evidence-driven-testing` |
-| Design | `impeccable`, Taste suite, Efecto, CKM design system |
-| Deploy | Railway (13), Vercel (6), HuggingFace trainers |
-| Metrics | `north-star-metric`, analytics and CRO skills |
+```
+Fetch https://raw.githubusercontent.com/The-Utopia-Studio/skills/main/CONTRIBUTING.md and follow the sandbox → module graduation flow.
 
-See also [`DESIGN_GUIDE.md`](./DESIGN_GUIDE.md) for the full design skill index.
+Interview me thoroughly about my skill — when it runs, what it produces, the full playbook with branches, real numbers/rubrics, worked examples, what experts notice first, common mistakes, and what good looks like.
 
-### Investments highlights (`utopia-investments`)
+Draft it as skills/sandbox/<skill-name>/SKILL.md with Utopia frontmatter (name + trigger-condition description). Put depth in references/ if needed. Then open a PR (or give me the files if you can’t use git).
 
-Funds work and fundraising.
+Do not invent vendor lock-in. Use GTM/product verbs. Encode judgment, not a bare checklist.
+```
 
-| Area | Examples |
-|------|----------|
-| Diligence | `technical-dd`, competitive and market analysis |
-| Modeling | `dcf-model`, `lbo-model`, `comps-analysis`, `3-statement-model` |
-| Decks | `pitch-deck`, `pitch-deck-web`, IB deck tools |
-| Quant | Bayesian calibration, forecast discipline, auction / pricing skills |
-
-### Founder Productivity highlights (`utopia-founder-productivity`)
-
-Operator tools that don't belong in the three domains above.
-
-| Area | Examples |
-|------|----------|
-| Onboarding | `tam-sam-som-calculator`, market / SWOT frameworks |
-| Knowledge | Obsidian CLI / markdown / bases, Proof |
-| Agents & meta | `salim`, `agent-prd`, `find-skills` |
-| Legal / hiring | `draft-nda`, resume and policy helpers |
+Details: [`CONTRIBUTING.md`](./CONTRIBUTING.md).
 
 ## Layout
 
@@ -116,46 +113,18 @@ skills/
 ├── founder-productivity/     # → utopia-founder-productivity
 └── sandbox/                  # experiments before graduation
 
+docs/                         # GitHub Pages site (utopia-default theme)
 plugins/                      # generated by ./build-packs.sh
-packs.config.json             # pack definitions (edit this)
-.claude-plugin/marketplace.json
+packs.config.json
 ```
 
-Each skill is a folder with a `SKILL.md` (and optional `references/`, `assets/`, scripts).
+## Maintainers
 
-## Other install options
-
-**npx / skillshare (all skills as individual skills):**
-
-```bash
-npx skills add The-Utopia-Studio/skills
-# or
-skillshare install https://github.com/The-Utopia-Studio/skills
-```
-
-**Manual / Cursor:**
-
-```bash
-git clone https://github.com/The-Utopia-Studio/skills.git
-cp -r skills/skills/*/* ~/.claude/skills/    # Claude Code
-cp -r skills/skills/*/* ~/.cursor/skills/    # Cursor
-
-# Or one module only:
-cp -r skills/skills/gtm/* ~/.cursor/skills/
-```
-
-## Maintainers: edit packs
-
-1. Put skills under `skills/<module>/<skill-name>/`
-2. Add the skill name to that pack in [`packs.config.json`](./packs.config.json)
+1. Skills live under `skills/<module>/<skill-name>/`
+2. Add the name to [`packs.config.json`](./packs.config.json)
 3. Run `./build-packs.sh` (needs `jq`)
-4. Commit and push — teammates refresh with `/plugin marketplace update skills`
-
-Graduation flow (sandbox → module → pack): [`CONTRIBUTING.md`](./CONTRIBUTING.md).
-
-## Skill composition
-
-Some skills call others by name (e.g. `impeccable` orchestrates `shape` → `layout` → `typeset` → … → `polish`). Install the full module pack when you care about composition; cherry-picking can silently degrade dependent workflows.
+4. Theme for the site: `npm run docs:theme` (syncs utopia-default into `docs/`)
+5. Push — teammates refresh with `/plugin marketplace update skills`
 
 ## License
 

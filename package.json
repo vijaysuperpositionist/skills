@@ -1,0 +1,40 @@
+{
+  "name": "utopia-skills",
+  "version": "1.0.0",
+  "description": "AI skill marketplace for The Utopia Studio \u2014 GTM, Product, Investments, Founder Productivity.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ceramic": "utopia-ds",
+    "ceramic:doctor": "utopia-ds doctor --json",
+    "docs:theme": "bash scripts/sync-docs-theme.sh",
+    "docs:serve": "python3 -m http.server 4173 --directory docs",
+    "build:packs": "./build-packs.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-Utopia-Studio/skills.git"
+  },
+  "keywords": [
+    "agent-skills",
+    "claude-code",
+    "cursor",
+    "gtm",
+    "skills-sh",
+    "utopia-studio"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/The-Utopia-Studio/skills/issues"
+  },
+  "homepage": "https://github.com/The-Utopia-Studio/skills#readme",
+  "dependencies": {
+    "@utopia-studio-design/design-system": "^0.7.0"
+  },
+  "devDependencies": {
+    "@utopia-studio-design/design-system-cli": "^0.5.0"
+  },
+  "private": true
+}

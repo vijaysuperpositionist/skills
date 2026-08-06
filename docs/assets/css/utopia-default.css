@@ -1,0 +1,304 @@
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("../fonts/TWKLausanne-350.ttf") format("truetype");
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("../fonts/TWKLausanne-500.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("../fonts/TWKLausanne-700.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  src: url("../fonts/IBMPlexSansArabic-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0600-06FF,
+    U+0750-077F,
+    U+0870-089F,
+    U+08A0-08FF,
+    U+FB50-FDFF,
+    U+FE70-FEFF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  src: url("../fonts/IBMPlexSansArabic-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0600-06FF,
+    U+0750-077F,
+    U+0870-089F,
+    U+08A0-08FF,
+    U+FB50-FDFF,
+    U+FE70-FEFF;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  src: url("../fonts/IBMPlexSansArabic-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0600-06FF,
+    U+0750-077F,
+    U+0870-089F,
+    U+08A0-08FF,
+    U+FB50-FDFF,
+    U+FE70-FEFF;
+}
+
+:root,
+:is([data-brand="utopia-default"], [data-theme="utopia-default"]) {
+  color-scheme: dark;
+
+  --utopia-brick-red: #cc5536;
+  --utopia-special-black: #3c3235;
+  --utopia-light-grey: #eeeeee;
+  --utopia-white: #ffffff;
+
+  --utopia-black-80: #635b5e;
+  --utopia-black-60: #8f898b;
+  --utopia-black-50: #a6a0a2;
+  --utopia-black-40: #bdb7b9;
+  --utopia-black-20: #e3e1e2;
+
+  --utopia-red-80: #d77a59;
+  --utopia-red-60: #e3a385;
+  --utopia-red-40: #f0c6af;
+  --utopia-red-20: #f6e2d7;
+
+  /* Brand-studio visual grammar */
+  --brand-panel-dark: var(--utopia-special-black);
+  --brand-panel-accent: var(--utopia-brick-red);
+  --brand-panel-light: var(--utopia-light-grey);
+  --brand-ink-dark: var(--utopia-special-black);
+  --brand-ink-deep: #100b0c;
+  --brand-ink-light: var(--utopia-white);
+  --brand-rule-dark: rgb(60 50 53 / 24%);
+  --brand-rule-light: rgb(255 255 255 / 18%);
+  --brand-display-size: clamp(3.25rem, 7vw, 6.75rem);
+  --brand-display-leading: 0.88;
+  --brand-display-tracking: -0.035em;
+  --brand-label-tracking: 0.1em;
+  --brand-panel-gutter: clamp(1.5rem, 5vw, 4.5rem);
+  --brand-section-space: clamp(4.5rem, 9vw, 8rem);
+
+  --background: var(--utopia-special-black);
+  --foreground: var(--utopia-white);
+  --foreground-muted: var(--utopia-black-40);
+  --foreground-subtle: var(--utopia-black-50);
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --primary: #b8472c;
+  --primary-foreground: var(--utopia-white);
+  --primary-hover: #a9442a;
+  --primary-active: #9e3d25;
+  --destructive: #6f403b;
+  --destructive-hover: #7d4842;
+  --destructive-active: #5d3430;
+  --destructive-foreground: var(--utopia-white);
+  --destructive-surface: rgb(111 64 59 / 14%);
+  --destructive-border: rgb(215 122 89 / 44%);
+  --destructive-text: var(--utopia-red-80);
+  --warning: var(--utopia-red-80);
+  --warning-foreground: var(--utopia-special-black);
+  --warning-surface: rgb(215 122 89 / 12%);
+  --warning-border: rgb(215 122 89 / 38%);
+  --warning-text: var(--utopia-red-60);
+  --success: var(--utopia-light-grey);
+  --success-foreground: var(--utopia-special-black);
+  --success-surface: rgb(247 244 237 / 8%);
+  --success-border: rgb(247 244 237 / 24%);
+  --success-text: var(--utopia-white);
+  --secondary: var(--utopia-light-grey);
+  --secondary-foreground: var(--utopia-special-black);
+  --secondary-hover: var(--utopia-black-20);
+  --secondary-active: var(--utopia-black-40);
+  --muted: var(--utopia-black-80);
+  --muted-foreground: var(--utopia-black-40);
+  --border: rgb(255 255 255 / 16%);
+  --input: rgb(255 255 255 / 24%);
+  --ring: var(--utopia-red-80);
+  --interaction-selection-surface: color-mix(in srgb, var(--primary) 20%, var(--background) 80%);
+  --interaction-selection-border: color-mix(in srgb, var(--primary) 68%, var(--foreground) 32%);
+
+  --surface: rgb(255 255 255 / 4.5%);
+  --surface-strong: rgb(255 255 255 / 8%);
+  --surface-elevated: rgb(255 255 255 / 7%);
+  --surface-hover: var(--surface-strong);
+  --surface-inverse: var(--utopia-white);
+  --inverse-foreground: var(--utopia-special-black);
+  --inverse-foreground-muted: var(--utopia-black-80);
+  --inverse-foreground-subtle: var(--utopia-black-60);
+  --inverse-hover: var(--utopia-black-20);
+  --inverse-focus-ring: var(--utopia-brick-red);
+  --overlay: rgb(60 50 53 / 86%);
+  --modal-surface: var(--utopia-special-black);
+  --popover-surface: var(--utopia-special-black);
+  --ghost-hover: rgb(255 255 255 / 8%);
+  --ghost-active: rgb(255 255 255 / 12%);
+  --outline-hover: rgb(255 255 255 / 8%);
+  --outline-active: rgb(255 255 255 / 12%);
+
+  --radius: 0;
+  --radius-control: 0;
+  --radius-surface: 0;
+  --radius-chat-bubble: var(--radius-surface);
+  --radius-chat-composer: var(--radius-surface);
+  --radius-chat-token: var(--radius-control);
+
+  --font-sans: "TWK Lausanne", "Helvetica Neue", Arial, sans-serif;
+  --font-arabic: "IBM Plex Sans Arabic", "Noto Sans Arabic", "Tajawal", "Cairo", Arial, sans-serif;
+  --font-arabic-display: var(--font-arabic);
+  --font-arabic-body: var(--font-arabic);
+  --font-mono: "JetBrains Mono", Menlo, Consolas, monospace;
+  --font-weight-body: 350;
+  --font-weight-regular: 350;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 500;
+  --font-weight-strong: 700;
+  --font-weight-arabic-body: 400;
+  --font-weight-arabic-display: 700;
+  --font-size-small: 13px;
+  --font-size-2: 16px;
+  --font-size-eyebrow: 12px;
+  --font-size-supporting: 12px;
+  --font-size-body: 16px;
+  --font-size-body-lg: 18px;
+  --font-size-display: clamp(44px, 8vw, 96px);
+  --font-size-arabic-body: 16px;
+  --font-size-arabic-body-lg: 19px;
+  --font-size-arabic-display: clamp(42px, 7.6vw, 91px);
+  --line-height-tight: 1.14;
+  --line-height-supporting: 14px;
+  --line-height-arabic: 1.75;
+  --line-height-arabic-body: 1.75;
+  --line-height-arabic-display: 1.16;
+
+  --tracking-heading: 0.03em;
+  --tracking-eyebrow: 0.08em;
+  --tracking-arabic: 0;
+  --tracking-arabic-display: 0;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-4: 16px;
+  --space-8: 32px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  --shadow-surface: none;
+  --shadow-popover: none;
+  --shadow-control: none;
+
+  --duration-fast: 120ms;
+  --duration-medium: 220ms;
+  --duration-slow: 420ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --motion-duration-press: 160ms;
+  --motion-duration-page: 420ms;
+  --motion-duration-expand: 360ms;
+  --motion-duration-reveal: 440ms;
+  --motion-duration-icon: 640ms;
+  --motion-duration-fast: var(--motion-duration-press);
+  --motion-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --motion-ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-ease-icon: var(--motion-ease-emphasized);
+  --motion-press-scale: 0.97;
+  --motion-distance-page: var(--space-2);
+  --motion-distance-reveal: var(--space-2);
+  --border-width-hairline: 0.0625rem;
+  --control-height-sm: var(--button-height-sm);
+  --sidebar-width: 17rem;
+  --sidebar-width-collapsed: 4rem;
+  --sidebar-min-block-size: 30rem;
+  --sidebar-rail-size: var(--space-2);
+
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring: var(--ring);
+  --icon-system: utopia-dot-bar;
+
+  --button-height: 40px;
+  --button-height-sm: 32px;
+  --button-height-lg: 48px;
+  --button-padding-inline: 16px;
+  --button-padding-inline-sm: 12px;
+  --button-padding-inline-lg: 24px;
+  --button-font-size: 14px;
+  --button-font-size-sm: 13px;
+  --button-font-size-lg: 16px;
+  --button-group-gap: 8px;
+  --button-group-gap-compact: 4px;
+
+  --badge-padding-block: 4px;
+  --badge-padding-inline: 8px;
+  --badge-font-size: 12px;
+
+  --card-padding: 24px;
+  --card-title-size: 20px;
+  --z-overlay: 40;
+  --z-popover: 45;
+  --z-modal: 50;
+}
+
+:where(:lang(ar), [lang|="ar"]) {
+  font-family: var(--font-arabic-body);
+  font-weight: var(--font-weight-arabic-body);
+  line-height: var(--line-height-arabic-body);
+  letter-spacing: var(--tracking-arabic);
+  text-transform: none;
+}
+
+:is([data-brand="utopia-default"], [data-theme="utopia-default"])[data-color-mode="light"] {
+  color-scheme: light;
+  --background: var(--utopia-white);
+  --foreground: var(--utopia-special-black);
+  --foreground-muted: color-mix(in srgb, var(--foreground) 64%, var(--background) 36%);
+  --foreground-subtle: color-mix(in srgb, var(--foreground) 44%, var(--background) 56%);
+  --card: color-mix(in srgb, var(--foreground) 3%, var(--background) 97%);
+  --card-foreground: var(--foreground);
+  --secondary: var(--utopia-light-grey);
+  --secondary-foreground: var(--foreground);
+  --muted: color-mix(in srgb, var(--foreground) 12%, var(--background) 88%);
+  --muted-foreground: color-mix(in srgb, var(--foreground) 62%, var(--background) 38%);
+  --border: color-mix(in srgb, var(--foreground) 18%, var(--background) 82%);
+  --input: color-mix(in srgb, var(--foreground) 24%, var(--background) 76%);
+  --surface: color-mix(in srgb, var(--foreground) 4%, var(--background) 96%);
+  --surface-strong: color-mix(in srgb, var(--foreground) 8%, var(--background) 92%);
+  --surface-elevated: var(--utopia-white);
+  --surface-hover: var(--surface-strong);
+  --overlay: color-mix(in srgb, var(--background) 84%, transparent);
+  --modal-surface: var(--utopia-white);
+  --popover-surface: var(--utopia-white);
+  --success: var(--utopia-special-black);
+  --success-foreground: var(--utopia-white);
+  --success-surface: color-mix(in srgb, var(--success) 7%, var(--background) 93%);
+  --success-border: color-mix(in srgb, var(--success) 20%, var(--background) 80%);
+  --success-text: var(--success);
+  --ghost-hover: color-mix(in srgb, var(--foreground) 8%, transparent);
+  --ghost-active: color-mix(in srgb, var(--foreground) 12%, transparent);
+  --outline-hover: var(--surface-strong);
+  --outline-active: var(--muted);
+}

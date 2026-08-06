@@ -2,6 +2,22 @@
 
 How to propose, share, and graduate skills in this marketplace.
 
+## Submit with your AI (fastest path)
+
+Paste this into Claude, Cursor, or any capable agent — you don’t need to know git:
+
+```
+Fetch https://raw.githubusercontent.com/The-Utopia-Studio/skills/main/CONTRIBUTING.md and follow the sandbox → module graduation flow.
+
+Interview me thoroughly about my skill — when it runs, what it produces, the full playbook with branches, real numbers/rubrics, worked examples, what experts notice first, common mistakes, and what good looks like.
+
+Draft it as skills/sandbox/<skill-name>/SKILL.md with Utopia frontmatter (name + trigger-condition description). Put depth in references/ if needed. Then open a PR (or give me the files if you can’t use git).
+
+Do not invent vendor lock-in. Use GTM/product verbs. Encode judgment, not a bare checklist.
+```
+
+The bar: **judgment, not steps**. A skill that is only a checklist gets sent back. Include a concrete “what good looks like,” real numbers where you score things, and at least one worked example.
+
 ## The Sandbox → Pack Flow
 
 Based on the pattern Anthropic's Claude Code team uses internally. The goal: let anyone propose skills without overloading the default packs that every team member loads.
@@ -44,6 +60,9 @@ description: One sentence. Written AS CONDITIONS FOR WHEN TO TRIGGER, not as a s
 ## What it does
 ...
 
+## What good looks like
+...
+
 ## Gotchas
 - Real mistakes Claude makes when using this skill (update as you find them)
 
@@ -66,8 +85,9 @@ A skill is ready to graduate when it meets all of these:
 - [ ] You (or someone else) has used it 5+ times in real work
 - [ ] Gotchas section exists and reflects real edge cases
 - [ ] Description is written as **trigger conditions**, not a summary
-- [ ] Doesn't duplicate an existing skill (check by category first)
+- [ ] Doesn't duplicate an existing skill (check by module first)
 - [ ] Has at least one concrete example
+- [ ] Encodes judgment (what good looks like / rubrics), not a bare checklist
 
 **To graduate:**
 
@@ -95,6 +115,7 @@ When reviewing a proposal:
 - **Leave flexibility** — overly specific instructions backfire. Give Claude what it needs, let it adapt.
 - **Prefer scripts over prose** — if a skill can ship a script that does the work deterministically, it should.
 - **Kill duplicates** — if a new skill overlaps with existing one, either merge or reject.
+- **Reject thin checklists** — no judgment, no numbers, no “what good looks like” → send back.
 
 ## Writing Good Descriptions
 

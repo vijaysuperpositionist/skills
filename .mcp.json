@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "ceramic": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "--package",
+        "@utopia-studio-design/design-system-cli",
+        "utopia-ds",
+        "mcp"
+      ]
+    }
+  }
+}

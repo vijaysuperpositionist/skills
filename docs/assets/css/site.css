@@ -1,0 +1,522 @@
+/* Utopia Skills — site chrome on utopia-default tokens */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body, 1.5);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--utopia-red-60);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.wrap {
+  width: min(1120px, calc(100% - 2 * var(--brand-panel-gutter)));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: var(--font-size-eyebrow);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--brand-label-tracking);
+  text-transform: uppercase;
+  color: var(--foreground-muted);
+}
+
+.display {
+  margin: 0;
+  font-size: var(--brand-display-size);
+  font-weight: var(--font-weight-strong);
+  line-height: var(--brand-display-leading);
+  letter-spacing: var(--brand-display-tracking);
+  text-transform: uppercase;
+}
+
+.lede {
+  margin: 0;
+  max-width: 36rem;
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-regular);
+  color: var(--foreground-muted);
+  line-height: 1.45;
+}
+
+.rule {
+  height: 1px;
+  border: 0;
+  margin: 0;
+  background: var(--brand-rule-light);
+}
+
+/* Nav */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--background) 88%, transparent);
+  border-bottom: 1px solid var(--brand-rule-light);
+}
+
+.site-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 64px;
+}
+
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.brand__name {
+  font-size: 14px;
+  font-weight: var(--font-weight-strong);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.brand__sub {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--foreground-subtle);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--foreground-muted);
+}
+
+.nav-links a:hover {
+  color: var(--foreground);
+}
+
+@media (max-width: 720px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--button-height);
+  padding: 0 var(--button-padding-inline);
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  font-family: inherit;
+  font-size: var(--button-font-size);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform var(--motion-duration-press) var(--motion-ease-standard),
+    background-color var(--duration-medium) var(--ease-standard),
+    border-color var(--duration-medium) var(--ease-standard),
+    color var(--duration-medium) var(--ease-standard);
+}
+
+.btn:active {
+  transform: scale(var(--motion-press-scale));
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.btn--primary:hover {
+  background: var(--primary-hover);
+  color: var(--primary-foreground);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--foreground);
+  border-color: var(--border);
+}
+
+.btn--ghost:hover {
+  background: var(--ghost-hover);
+  color: var(--foreground);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Hero — one composition, brand first, full-bleed */
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: min(92vh, 900px);
+  display: flex;
+  align-items: flex-end;
+  padding-block: clamp(5rem, 12vh, 8rem) clamp(3rem, 8vh, 5rem);
+  overflow: hidden;
+}
+
+.hero__atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 55% at 85% 10%, rgb(184 71 44 / 28%), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 0% 100%, rgb(255 255 255 / 5%), transparent 50%),
+    linear-gradient(180deg, #2a2225 0%, var(--utopia-special-black) 48%, #241e20 100%);
+}
+
+.hero__atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--brand-rule-light) 1px, transparent 1px),
+    linear-gradient(90deg, var(--brand-rule-light) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: 0.22;
+  mask-image: linear-gradient(180deg, rgb(0 0 0 / 55%), transparent 85%);
+}
+
+.hero__content {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  max-width: 48rem;
+}
+
+.hero__brand {
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: var(--font-weight-strong);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--utopia-red-60);
+}
+
+.hero .display {
+  animation: reveal-up var(--motion-duration-reveal) var(--motion-ease-emphasized) both;
+}
+
+.hero .lede {
+  animation: reveal-up var(--motion-duration-reveal) var(--motion-ease-emphasized) 80ms both;
+}
+
+.hero .btn-row {
+  animation: reveal-up var(--motion-duration-reveal) var(--motion-ease-emphasized) 140ms both;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-distance-reveal));
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .display,
+  .hero .lede,
+  .hero .btn-row {
+    animation: none;
+  }
+}
+
+/* Sections */
+.section {
+  padding-block: var(--brand-section-space);
+}
+
+.section__head {
+  display: grid;
+  gap: 12px;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  max-width: 40rem;
+}
+
+.section__title {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: var(--font-weight-strong);
+  letter-spacing: var(--tracking-heading);
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+.section--inverse {
+  background: var(--utopia-light-grey);
+  color: var(--utopia-special-black);
+}
+
+.section--inverse .eyebrow,
+.section--inverse .lede,
+.section--inverse .muted {
+  color: var(--utopia-black-80);
+}
+
+.section--inverse .rule {
+  background: var(--brand-rule-dark);
+}
+
+/* Modules */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 800px) {
+  .module-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.module {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  transition: background-color var(--duration-medium) var(--ease-standard);
+}
+
+.module:nth-child(2n) {
+  border-right: 0;
+}
+
+.module:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+@media (max-width: 800px) {
+  .module {
+    border-right: 0;
+  }
+  .module:nth-last-child(-n + 2) {
+    border-bottom: 1px solid var(--border);
+  }
+  .module:last-child {
+    border-bottom: 0;
+  }
+}
+
+.module:hover {
+  background: var(--surface-hover);
+}
+
+.module__count {
+  margin: 0 0 12px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--utopia-red-60);
+}
+
+.module__name {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-strong);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.module__desc {
+  margin: 0 0 16px;
+  color: var(--foreground-muted);
+  font-size: 15px;
+}
+
+.module code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--foreground);
+  background: var(--surface-strong);
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+}
+
+/* Flagship skills */
+.skill-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+
+.skill {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr) auto;
+  gap: 16px 24px;
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+@media (max-width: 800px) {
+  .skill {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+.skill__name {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.02em;
+}
+
+.skill__why {
+  margin: 0;
+  color: var(--foreground-muted);
+  font-size: 15px;
+}
+
+.skill__cmd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--utopia-red-60);
+  white-space: nowrap;
+}
+
+@media (max-width: 800px) {
+  .skill__cmd {
+    white-space: normal;
+    word-break: break-all;
+  }
+}
+
+/* Install */
+.install-panel {
+  display: grid;
+  gap: 20px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--brand-rule-dark);
+  background: var(--utopia-white);
+  color: var(--utopia-special-black);
+}
+
+.install-panel pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  background: var(--utopia-special-black);
+  color: var(--utopia-light-grey);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.55;
+  border: 0;
+}
+
+.install-panel .muted {
+  margin: 0;
+  color: var(--utopia-black-80);
+  font-size: 14px;
+}
+
+/* Contribute */
+.prompt-box {
+  display: grid;
+  gap: 16px;
+}
+
+.prompt-box textarea {
+  width: 100%;
+  min-height: 220px;
+  padding: 16px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.prompt-box textarea:focus {
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Footer */
+.site-footer {
+  padding-block: 48px 64px;
+  border-top: 1px solid var(--brand-rule-light);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--foreground-subtle);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.muted {
+  color: var(--foreground-muted);
+}

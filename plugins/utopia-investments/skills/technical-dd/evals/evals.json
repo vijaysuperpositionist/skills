@@ -1,0 +1,17 @@
+{
+  "skill_name": "technical-dd",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Run technical DD on a Series A developer-tools company with a monorepo NestJS + React stack and no SOC2 yet.",
+      "expected_output": "Should produce investment-grade technical diligence covering architecture, security, scalability, team/process risks, and open questions. Should flag missing SOC2 as a process/security gap without panicking.",
+      "assertions": [
+        "Covers architecture and security",
+        "Flags compliance/process gaps proportionally",
+        "Includes open questions / diligence follow-ups",
+        "Reads as investment-grade not a blog post"
+      ],
+      "files": []
+    }
+  ]
+}

@@ -4,6 +4,8 @@
 
 Four modules · **301 skills** · Claude Code plugin marketplace for The Utopia Studio.
 
+**Site:** [the-utopia-studio.github.io/skills](https://the-utopia-studio.github.io/skills)
+
 | Module | Pack | For… |
 |--------|------|------|
 | GTM | `utopia-gtm` | Sales, marketing, growth, RevOps |

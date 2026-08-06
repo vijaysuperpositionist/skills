@@ -1,0 +1,10 @@
+# Ceramic Design System agent rules
+
+1. Run `npm run ceramic -- manifest --json` before generating UI.
+2. Run `npm run ceramic -- search <intent> --json`, then inspect the selected component or template.
+3. Prefer `@utopia-studio-design/design-system` exports over raw shadcn/ui source.
+4. Components consume semantic tokens only. The active theme is `utopia-default`.
+5. Request semantic motion only; inspect `npm run ceramic -- motion ceremonial --json` before choosing an application runtime adapter.
+6. Read `npm run ceramic -- docs arabic-friendly --dense` before Arabic or RTL work.
+7. Never invent component props, import paths, tokens, Arabic product copy, or left/right-only APIs.
+8. Validate with `npm run ceramic:doctor` before handoff.

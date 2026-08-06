@@ -1,0 +1,17 @@
+{
+  "skill_name": "pitch-deck",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build a seed pitch deck from these notes: B2B workflow AI, $12k ACV, 8 design partners, raising $2.5M.",
+      "expected_output": "Should produce a structured investor deck narrative with clear problem, solution, market, traction, ask. Should not invent fake metrics. Should follow Utopia brand-aware deck guidance where applicable.",
+      "assertions": [
+        "Produces a full deck structure",
+        "Uses provided traction without inventing numbers",
+        "Includes a clear ask",
+        "Keeps investor narrative tight"
+      ],
+      "files": []
+    }
+  ]
+}
