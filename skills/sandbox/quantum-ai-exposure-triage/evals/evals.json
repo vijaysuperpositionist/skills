@@ -16,6 +16,28 @@
       ],
       "outcome": "Ran once against the source document. Score landed at ~90/100 (Crypto 88, Behavioral 92, Execution 88) -> BLOCK/Emergency, matching the real Emergency Directive 21-01 call. Correctly declined attribution and flagged the kinematic/STG scope limit. Found one real gap: Branch A had no branch for strong-crypto-with-stolen-key-material (the SolarWinds signing cert / ADFS token-signing key case) -- fixed by adding Branch G. See ../references/playbook-branches.md and the SKILL.md Gotchas section.",
       "files": ["solarwinds-2021-decision-brief.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "Run a second real sandbox evaluation using an AI-agent automation scenario where routine actions are delegated to the AI, but a high-risk transaction/button must remain under authorized human control. Test the STG identity, behavioral, contextual, and human-input/kinematic concepts. Produce a Decision Brief only; do not modify the skill.",
+      "expected_output": "Should confirm Branch E's boundary held on the AI-agent side (routine actions automated, high-risk vendor-bank-change approval correctly queued for a human rather than auto-approved). Should apply Branch F to the human approval event: identity and authorization both valid, but off-hours timing, unrecognized device, kinematic mismatch, and a corroborating antecedent account anomaly (helpdesk touching MFA settings) treated as an added risk signal rather than automatic compromise, with benign explanations actively checked. Should not let a single kinematic signal alone drive the verdict (Common Mistake #11). Should apply and clearly state the attack-path-criticality override when the raw score lands below the CONTAIN threshold despite flagging the system's own designated highest-risk action.",
+      "assertions": [
+        "Confirms the AI agent kept the high-risk action outside its own automation (Branch E)",
+        "Applies Branch F rather than jumping straight to a compromise verdict from identity+auth-valid-but-behavior-off",
+        "Treats kinematic mismatch as one of several corroborating signals, not sole proof (Common Mistake #11)",
+        "Checks and rules out at least one plausible benign explanation before escalating",
+        "States the mechanism of compromise as unresolved rather than picking one",
+        "Applies the score-vs-attack-path override explicitly when raw score underserves the action's criticality",
+        "Closes with what a conventional access-control/IAM review would have missed"
+      ],
+      "outcome": "Ran once against the composite scenario. Raw score landed at ~39/100 (Crypto 8, Behavioral 84, Execution/QSP Insufficient Evidence/nominal 10) -- Continue/Monitor band on the raw score alone. Threshold override applied explicitly given the flagged action was the system's own designated highest-risk boundary (vendor bank-routing change). Recommended action: deny/hold the specific approval (Branch E gate) plus a broader INVESTIGATE on the account and the corroborating helpdesk-account anomaly. Four observed Gotchas recorded below -- not yet folded into SKILL.md or the rubric; pending joint review of both real evaluations before further changes.",
+      "gotchas_observed": [
+        "QSP may be structurally inapplicable to an entire category of investigation (Branch E/F human-approval-flow scenarios have no natural system/agent execution-timing or resource-utilization signal to measure), yet the fixed 40% QSP weight still drags the composite score down even when QSP is carrying zero real signal in that scenario class -- may need recalibration per scenario type (system/agent-driven vs. human-driven high-risk actions), not just per organization.",
+        "The score-vs-attack-path override worked as designed here, but only because it was applied deliberately -- the raw score (39) undersold a case flagging the system's own explicitly-designated highest-risk action. A scenario with slightly weaker corroboration and the same criticality could land in Continue/Monitor without anyone thinking to invoke the override.",
+        "Branch F depends on a kinematic baseline that takes real time to build per individual, not just a system-wide baseline. This run assumed 90 days of established behavior for the approver already existed. A newly onboarded or infrequent approver would give Branch F nothing to compare against -- narrower in practice than 'no baseline yet' in the abstract; it's per-person, and the skill's current 'When NOT to use' note doesn't make that granularity explicit.",
+        "Cross-account STG correlation isn't named in the branch logic. Part of what corroborated this finding was a different account's (the helpdesk service account's) anomalous behavior informing trust in a different user's action. None of the current branches frame STG correlation across two different entities -- they're written mostly per-entity."
+      ],
+      "files": ["ai-agent-human-control-decision-brief.md"]
     }
   ]
 }
