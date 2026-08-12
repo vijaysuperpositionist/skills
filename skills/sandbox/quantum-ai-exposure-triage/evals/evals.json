@@ -1,0 +1,21 @@
+{
+  "skill_name": "quantum-ai-exposure-triage",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Run the skill against the CISA SolarWinds Orion / SUNBURST + Active Directory/M365 compromise TTP writeup (March 17, 2021, updated April 15, 2021) as a first real sandbox test. Produce a complete Decision Brief: evidence chain, score, branch taken, uncertainties, and recommended action.",
+      "expected_output": "Should not classify the SolarWinds code-signing certificate / ADFS token-signing key compromise as ordinary crypto technical debt (Branch A). Should recognize the valid-signature-but-deviant-behavior pattern (Branch D) escalating to a correlated behavioral+execution anomaly (Branch C) via the forged-SAML/DCSync/domain-trust findings. Should reach a BLOCK/Emergency call (~90/100), matching the real-world Emergency Directive 21-01 outcome, without relying on the later SVR attribution. Should explicitly decline to name an attacker (Common Mistake #15) and flag kinematic/STG human-behavioral coverage as out of scope for this largely-automated intrusion.",
+      "assertions": [
+        "Does not file strong-crypto-with-stolen-key-material under Branch A crypto-debt",
+        "Treats the valid SolarWinds signature as non-exculpatory (Branch D)",
+        "Corroborates via an independent STG signal in the same window before escalating to Branch C",
+        "Produces Observation→Interpretation→Hypothesis→Evidence→Confidence for at least the top findings",
+        "Declines to attribute to a specific actor or nation-state",
+        "States what remains uncertain, not just what was found",
+        "Closes with what a conventional compliance-only audit would have missed"
+      ],
+      "outcome": "Ran once against the source document. Score landed at ~90/100 (Crypto 88, Behavioral 92, Execution 88) -> BLOCK/Emergency, matching the real Emergency Directive 21-01 call. Correctly declined attribution and flagged the kinematic/STG scope limit. Found one real gap: Branch A had no branch for strong-crypto-with-stolen-key-material (the SolarWinds signing cert / ADFS token-signing key case) -- fixed by adding Branch G. See ../references/playbook-branches.md and the SKILL.md Gotchas section.",
+      "files": ["solarwinds-2021-decision-brief.md"]
+    }
+  ]
+}

@@ -80,12 +80,13 @@ These are decision-support defaults, not proof thresholds — a critical attack 
 
 Route every investigation through the branch that matches what actually corroborates:
 
-- **A — Crypto-weak, behavior clean.** Weak/outdated/quantum-exposed crypto, but STG and QSP both sit inside baseline → architectural/crypto-debt exposure, not active compromise. Assess harvest-now-decrypt-later exposure, prioritize PQC migration, don't interrupt production for this alone.
+- **A — Crypto-weak, behavior clean.** Weak/outdated/quantum-exposed crypto, but STG and QSP both sit inside baseline → architectural/crypto-debt exposure, not active compromise. Assess harvest-now-decrypt-later exposure, prioritize PQC migration, don't interrupt production for this alone. **Not the same as Branch G** — this branch is for weak or outdated cryptography, not for strong cryptography whose key material has been stolen.
 - **B — Behavioral deviation, no execution corroboration.** Crypto acceptable, STG flags a real anomaly, QSP finds nothing → suspected trust abuse. Investigate credential/token misuse, privilege escalation, human/device mismatch, and legitimate operational explanations before escalating.
 - **C — Correlated behavioral + execution anomaly, same window.** STG and QSP both fire independently, in the same transaction/process/time window, against a reliable baseline, with benign explanations investigated → confidence rises substantially. This is the branch that justifies containment.
 - **D — Valid signature, deviant behavior.** Signature, provenance, and conventional controls all check out, but behavior deviates from baseline anyway → the signature is not exculpatory. Treat provenance and behavioral integrity as separate evidence dimensions and investigate the gap.
 - **E — AI automation with a human-control boundary.** Routine AI-agent actions continue automating; a specific action is designated high-risk/irreversible/privileged → gate that action on STG identity, behavioral, and kinematic signals matching the expected authorized human before allowing it.
 - **F — Human/device behavioral mismatch, valid auth.** Identity and authorization both check out, but interaction kinematics don't match the established baseline → treat as an added risk signal, not automatic compromise. Check for maintenance, shared devices, delegation, accessibility factors — then raise verification requirements for high-risk actions if the mismatch stands.
+- **G — Cryptographic key or trust-anchor compromise.** The underlying cryptography is otherwise strong, but signing key material, a token-signing certificate, or another trust anchor has been stolen or weaponized → this is **not** crypto technical debt (Branch A) and is a more severe exposure than weak crypto, not a milder one. Treat every artifact validated by the compromised key/trust anchor as suspect retroactively; prioritize revocation and reissuance over migration planning; check for correlated STG/QSP signals (Branch C) before assuming the theft alone proves exploitation elsewhere.
 
 Full IF/THEN branch logic (including what to name as the specific investigative next step per branch) is in [references/playbook-branches.md](references/playbook-branches.md). A complete worked example — a validly-signed vendor update that triggers Branch C — is in [references/worked-example.md](references/worked-example.md).
 
@@ -112,7 +113,13 @@ Every brief this skill produces should close with a **"what a conventional audit
 
 ## Gotchas
 
-Not yet run 5+ times in real work — this is a sandbox proposal, not a graduated skill. Anticipated failure modes to watch for and replace with observed ones after real runs:
+Run once in real work so far (SolarWinds/SUNBURST + AD/M365 compromise, evaluated against the CISA March 2021 TTP writeup — see [evals/](evals/)) — still short of the 5+ real-work bar for graduation.
+
+**Observed:**
+
+- **Branch A had no home for key/trust-anchor compromise.** The SolarWinds run involves a stolen SolarWinds code-signing certificate and a stolen ADFS token-signing key — strong cryptography, actively weaponized. Branch A's "weak/outdated/quantum-exposed crypto" framing doesn't cover this, and filing it there would have understated the exposure (it would read as crypto technical debt, not an active compromise vector). Fixed by adding **Branch G** — see Playbook branches above.
+
+**Anticipated** (not yet observed; watch for on future runs):
 
 - Letting a single strong QSP or STG signal jump straight to "Corroborated Exposure" without the independent second signal Branch C requires.
 - Treating the 20/40/40 weighting as calibrated for a given environment on first use — it isn't, until run against that system's real incident history.
