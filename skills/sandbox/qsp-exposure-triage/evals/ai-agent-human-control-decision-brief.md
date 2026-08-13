@@ -1,4 +1,6 @@
-# Quantum × AI Exposure Triage — Decision Brief
+> **⚠️ SUPERSEDED — entirely out of scope for the current skill.** This entire run tested Branches E/F and STG's identity, behavioral, contextual, and kinematic concepts. QSP and STG are now treated as independent products; `qsp-exposure-triage` covers QSP only and contains no identity, session, human/AI-agent behavioral, or kinematic logic anywhere. Nothing in this document — the scenario, the branch logic, the score, the Gotchas — carries forward into the QSP-only skill. Kept here purely as historical record of the combined-model experiment that led to the architecture reset.
+
+# Quantum × AI Exposure Triage — Decision Brief (historical, combined QSP+STG model — this run is entirely STG, no QSP content)
 
 **Scenario (composite, built to test Branch E/F and STG's identity/behavioral/contextual/kinematic dimensions):** A finance-ops AI agent ("OpsAgent") automates routine invoice matching, expense categorization, and sub-$500 reimbursement approval. Vendor bank-account/routing-number changes are explicitly designated the high-risk human-control boundary — OpsAgent may draft and queue them but may never approve one; only a named human approver can release it.
 

@@ -1,4 +1,6 @@
-# Quantum × AI Exposure Triage — Decision Brief
+> **⚠️ SUPERSEDED — historical record only.** This run used the deprecated combined QSP+STG scoring model (crypto/behavioral/execution weighting, Branches A–G). The skill has since been split: QSP and STG are independent products, and `qsp-exposure-triage` now covers QSP only. **Finding 2 below (forged SAML tokens, DCSync, domain-trust reconfiguration, "impossible travel") is entirely STG/identity material and is out of scope for the current QSP-only skill.** Finding 1 (signed-artifact-but-deviant-execution-behavior) and the DGA/dormancy/disguised-telemetry evidence remain QSP-relevant and were carried forward — see `references/worked-example.md` and `references/common-mistakes.md` (mistake #3, self-reported telemetry as ground truth). The ~90/100 score and BLOCK/Emergency call in this document relied on the STG finding for its strongest corroboration; a QSP-only assessment of this same scenario would land at a lower-confidence, lower-urgency call. Kept here as historical evidence per the architecture-reset decision, not as a current QSP output.
+
+# Quantum × AI Exposure Triage — Decision Brief (historical, combined QSP+STG model)
 
 **Target scenario:** SolarWinds Orion / SUNBURST supply-chain compromise → Azure AD/M365 follow-on activity (CISA, March 17 2021, updated April 15 2021)
 **Run type:** First real sandbox test of `quantum-ai-exposure-triage`

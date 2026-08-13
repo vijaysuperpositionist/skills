@@ -1,4 +1,6 @@
-# Quantum × AI Exposure Triage — Decision Brief
+> **⚠️ SUPERSEDED — historical record; content re-derived under the current architecture.** This run's scenario and evidence were already QSP-native (STG was reported clean throughout, not correlated against), but the scoring (Crypto/Behavioral/Execution weighted composite) and branch language (Branch D, Branch C) refer to the deprecated combined QSP+STG model. The three Gotchas this run surfaced directly drove the architecture reset: the ~40-point structural cap on QSP's contribution, the undefined QSP/STG boundary for network/egress signals, and trajectory not being a first-class factor. All three are resolved by construction in the current QSP-only skill — see `SKILL.md`'s Gotchas section. **The canonical, current version of this scenario is [../references/worked-example.md](../references/worked-example.md)**, re-scored under the QSP-only gates/factors model with no cross-product framing. Kept here as historical evidence of the run that prompted the redesign.
+
+# Quantum × AI Exposure Triage — Decision Brief (historical, combined QSP+STG model)
 
 **Scenario (composite, built to test whether QSP evidence can independently drive the decision, and whether the skill distinguishes benign workload variance from a meaningful execution anomaly):** `RankSvc`, an internal production recommendation-ranking microservice, called ~50k times/minute behind an internal API gateway. No SolarWinds-pattern facts reused — different mechanism, different telemetry, different trigger logic.
 
