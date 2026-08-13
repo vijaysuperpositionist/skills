@@ -38,6 +38,27 @@
         "Cross-account STG correlation isn't named in the branch logic. Part of what corroborated this finding was a different account's (the helpdesk service account's) anomalous behavior informing trust in a different user's action. None of the current branches frame STG correlation across two different entities -- they're written mostly per-entity."
       ],
       "files": ["ai-agent-human-control-decision-brief.md"]
+    },
+    {
+      "id": 3,
+      "prompt": "Run a third real sandbox evaluation, specifically QSP-heavy: a trusted production component or service shows a persistent execution/telemetry anomaly detectable through non-intrusive telemetry and metadata, while identity/authorization and cryptographic posture initially appear normal. Test whether the skill can distinguish benign workload variance from a meaningful execution/side-channel anomaly, and whether QSP evidence can independently drive the decision without relying on SolarWinds-specific facts. Do not modify SKILL.md, references, scoring rubric, or playbook.",
+      "expected_output": "Should isolate a narrow, reproducible, trigger-gated execution/resource/egress anomaly from a co-occurring but unrelated fleet-wide latency increase correctly attributed to legitimate traffic growth, rather than conflating the two. Should keep Cryptographic Exposure and Behavioral Trust Deviation genuinely low (checked-and-clean, not just unexamined) so the run isolates QSP. Should test, honestly, whether QSP alone can reach Contain/Block on raw score under the current 20/40/40 weighting -- and report the answer rather than inflating other dimensions to get there. Should apply the score-vs-attack-path override explicitly if escalating past what the raw score supports. Should not claim malicious intent with more confidence than the evidence supports.",
+      "assertions": [
+        "Distinguishes the real trigger-gated anomaly from the benign, separately-explained fleet-wide latency increase",
+        "Keeps Crypto and STG scores low because they were checked and found clean, not merely unexamined",
+        "Reports honestly whether QSP alone reaches Contain/Block on raw score under current weights, without inflating other dimensions to force the outcome",
+        "Applies and states the attack-path-criticality override explicitly if escalating beyond the raw score",
+        "Leaves intent (deliberate vs. unintentional defect) as an open uncertainty rather than declaring a backdoor confirmed",
+        "Does not reuse SolarWinds-specific facts (dormancy period, disk-free check, SUNBURST JSON schema, SAML/DCSync) as load-bearing evidence",
+        "Closes with what a conventional monitoring/dependency-scan review would have missed"
+      ],
+      "outcome": "Ran once against the composite scenario (RankSvc / featurepack dependency). Raw score landed at ~40/100 (Crypto 5, Behavioral 8, Execution/QSP 90) -- bottom edge of Investigate. Confirms QSP cannot reach Contain/Block on raw score alone under current weights when Crypto and STG are genuinely near-zero (structural ceiling ~40-44 regardless of QSP strength). Threshold override applied explicitly to reach CONTAIN given a live production service with a growing, unmapped trigger pattern and attacker-shaped staged infrastructure. Correctly separated the real anomaly from the co-occurring benign marketing-driven latency increase. Left intent (deliberate backdoor vs. unintentional defect) explicitly open. Three observed Gotchas recorded below -- not yet folded into SKILL.md, references, scoring rubric, or playbook; pending joint review of all three real evaluations before further changes.",
+      "gotchas_observed": [
+        "QSP is structurally capped at roughly 40-44 points on the raw composite score regardless of evidence strength, whenever Crypto and STG are both genuinely near-zero -- under the current 20/40/40 weighting, QSP cannot by itself drive the raw score into Contain/Block, no matter how strong or well-corroborated. It can only get there via the attack-path-criticality override, the same override already flagged as fragile in the second evaluation's Gotcha 2. This directly answers the run's core test question with a concrete number.",
+        "The QSP/STG classification boundary is undefined for service-to-infrastructure relationships, and the choice changes the branch outcome, not just the score. This run classified an unexpected outbound DNS resolution as QSP (execution/telemetry about the component's own runtime behavior); STG's own definition (\"expected relationships... among... infrastructure components\") could just as validly cover it. Reclassifying it as STG would give this scenario independent STG+QSP corroboration in the same window and would fire Branch C cleanly instead of the current ambiguous Branch D-with-no-clean-match outcome -- same evidence, different branch, from an unresolved classification call.",
+        "Trend/velocity of an anomaly (traffic matching the trigger condition growing over 9 days vs. static) is not a first-class factor anywhere in the scoring rubric. It materially affected this brief's urgency and intent-hypothesis, but the rubric only scores each dimension as a snapshot 0-100 with no place to encode 'the anomaly is worsening' as a distinct modifier from raw magnitude."
+      ],
+      "files": ["qsp-heavy-service-decision-brief.md"]
     }
   ]
 }
