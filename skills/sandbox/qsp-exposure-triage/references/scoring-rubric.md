@@ -21,12 +21,30 @@ A finding that fails any gate stays at Insufficient Evidence no matter how drama
 | Factor | Points | Basis |
 |---|---|---|
 | Corroboration breadth | 0–40 | 1 signal category = 10; 2 independent categories, same trigger/window = 25; 3+ independent categories = 40 |
-| Magnitude | 0–30 | Per signal type. Timing/resource: <2x baseline = 5, 2–10x = 15, >10x = 30. Network/egress: contact with a novel, undocumented endpoint = 20, +10 if the traffic shows entropy or DGA-like patterns. Process/system-behavior and cryptographic-operation-behavior: score by analogy to the closest applicable band above — not yet independently calibrated (see Gotchas). |
+| Magnitude | 0–30 | Per-category tiered bands below, combined by the rule below when multiple categories fire |
 | Trigger specificity & trajectory | 0–30 | Diffuse and stable = 5; narrow/specific trigger, stable volume = 15; narrow/specific trigger and growing/spreading over time = 30 |
 
 **Total: 0–100.**
 
 Note the deliberate asymmetry: a narrow, trigger-specific deviation scores *higher* than a diffuse, environment-wide one at the same magnitude. This is intentional — a condition-gated deviation is more consistent with deliberately introduced logic than organic variance, which tends to be diffuse. Don't let a large diffuse number outscore a small but precisely-triggered one without checking which pattern the evidence actually shows.
+
+### Magnitude — one tiered band per signal category
+
+Every signal category defined in `SKILL.md` has a deterministic magnitude method below. **These bands are provisional calibration defaults, not scientifically validated thresholds** — recalibrate them against real QSP runs for the environment in question.
+
+| Category | Low (5) | Medium (15) | High (30) |
+|---|---|---|---|
+| Execution-timing | <2x baseline duration | 2–10x baseline duration | >10x baseline duration |
+| Resource-utilization | <2x baseline for the relevant metric (CPU, memory, I/O, handle count) | 2–10x baseline | >10x baseline, or growth not reclaimed across normal GC/cleanup cycles (a leak-like pattern rather than a transient spike) |
+| Process/system-behavior | A single anomalous process/task/service event, observed once, not yet reproduced | A reproducible anomalous event (e.g. a recurring unexpected process spawn or scheduled-task creation), otherwise unexplained | Reproducible **and** self-concealing or self-reverting (e.g. a scheduled task or config change that reappears after being reverted, or is restored to its original state after use), **or** the event sits entirely outside the component's documented function (disabling logging, modifying security tooling, spawning a shell) |
+| Network/egress metadata | Contact with an endpoint outside the documented dependency list, but otherwise unremarkable | Contact with a novel, undocumented endpoint, with no plausible legitimate explanation identified | Novel undocumented endpoint **plus** at least one additional red flag — high query-name entropy/DGA-like pattern, or the endpoint's registration/provisioning postdates the deviation's onset by only a few days (a staged-ahead-of-time pattern) |
+| Cryptographic-operation behavior | <2x baseline deviation in timing/frequency of crypto-operation calls | 2–10x baseline deviation | >10x baseline deviation, or invocation from a caller/process/context never observed at baseline for that operation |
+
+### Combining magnitude across multiple categories (Q3)
+
+When ≥2 signal categories deviate simultaneously and independently pass gates 1–3, the Magnitude factor score is the **highest** of the per-category magnitude scores among those categories — **never summed**.
+
+Why max, not sum: Corroboration breadth (the separate 0–40 factor above) already rewards the *number* of independently corroborating categories. Summing magnitude across categories on top of that would double-count the same breadth signal inside two different factors, inflating scores for reasons unrelated to how severe any individual piece of evidence actually is. Magnitude answers "how severe is the single most severe piece of evidence," not "how many severe things are there" — breadth already answers the second question.
 
 ## Evidence ladder
 
@@ -40,6 +58,8 @@ Note the deliberate asymmetry: a narrow, trigger-specific deviation scores *high
 Named "Indicator" deliberately: the top rung confirms the *evidence*, not that a compromise occurred. QSP characterizes; it does not verdict.
 
 ## Decision thresholds
+
+**These score bands are provisional calibration defaults, exactly like the Magnitude bands and the other scoring factors above — not scientifically validated thresholds.** They require calibration against real QSP runs before being trusted operationally, and every brief presenting a recommendation should say so.
 
 | Score | QSP recommends |
 |---|---|

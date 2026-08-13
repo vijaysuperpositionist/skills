@@ -94,14 +94,26 @@ Named "**Indicator**," deliberately — the top rung says the evidence is confir
 | Factor | Points | Basis |
 |---|---|---|
 | Corroboration breadth | 0–40 | 1 category=10, 2 independent categories same window=25, 3+=40 |
-| Magnitude | 0–30 | Per signal type — timing/resource: <2x baseline=5, 2–10x=15, >10x=30; network: novel undocumented endpoint=20, +10 for entropy/DGA-like pattern |
+| Magnitude | 0–30 | Per-category tiered bands below, combined by the rule below when multiple categories fire |
 | Trigger specificity & trajectory | 0–30 | Diffuse+stable=5; narrow+stable=15; narrow+growing/spreading=30 |
 
 Total 0–100.
 
+**Magnitude bands, one tiered scale per signal category — provisional calibration defaults, not validated thresholds:**
+
+| Category | Low (5) | Medium (15) | High (30) |
+|---|---|---|---|
+| Execution-timing | <2x baseline duration | 2–10x baseline duration | >10x baseline duration |
+| Resource-utilization | <2x baseline (CPU/memory/I-O/handle count) | 2–10x baseline | >10x baseline, or growth not reclaimed across normal GC/cleanup cycles |
+| Process/system-behavior | Single anomalous process/task/service event, not yet reproduced | Reproducible anomalous event, otherwise unexplained | Reproducible AND self-concealing/self-reverting (e.g. a task or config that reappears after being reverted), or the event sits entirely outside the component's documented function (disabling logging, modifying security tooling, spawning a shell) |
+| Network/egress metadata | Contact with an endpoint outside the documented dependency list but otherwise unremarkable | Contact with a novel, undocumented endpoint, no plausible legitimate explanation found | Novel undocumented endpoint plus at least one more red flag — high query-name entropy/DGA-like pattern, or the endpoint's registration/provisioning postdates the deviation's onset by only a few days |
+| Cryptographic-operation behavior | <2x baseline deviation in timing/frequency of crypto-operation calls | 2–10x baseline | >10x baseline, or invocation from a caller/context never observed at baseline for that operation |
+
+**Combination rule when multiple categories fire (Q3):** Magnitude = the **highest** of the per-category scores among the categories that passed all three gates — never summed across categories. Corroboration breadth already rewards the *number* of independently corroborating categories; summing magnitude on top would double-count that same breadth inside a second factor. Magnitude answers "how severe is the most severe piece of evidence," not "how many severe things are there."
+
 ## Decision thresholds and overrides
 
-QSP recommends; it does not order action.
+QSP recommends; it does not order action. **These score bands (0–24 / 25–49 / 50–74 / 75–100) are provisional calibration defaults, exactly like the scoring factors above — not scientifically validated thresholds. They require calibration against real QSP runs before being trusted operationally**, and that uncalibrated status should be stated whenever a recommendation is presented.
 
 | Score | QSP recommends |
 |---|---|

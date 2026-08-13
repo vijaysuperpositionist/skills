@@ -22,6 +22,6 @@
 
 11. **Ignoring trajectory.** Treating a growing or spreading deviation the same as a static one under-weights urgency; treating a static one as if it were accelerating over-escalates.
 
-12. **Declaring attribution.** Identifying who caused a deviation, or why, is out of scope for this skill. It characterizes execution-level behavior; it does not identify actors or intent with any confidence beyond what execution telemetry alone can support.
+12. **Declaring attribution.** QSP does not identify actors, attribution, or intent — never, at any confidence level, under any amount of corroborating evidence. Execution telemetry may support hypotheses about *execution behavior* ("this pattern is consistent with a conditionally-triggered payload"), but that must never be converted into a claim about who did it or why. If a brief starts naming a likely actor, campaign, or motive, that is a failure of this skill, not a strong finding — actor/intent/attribution determination is entirely out of scope, unconditionally.
 
 13. **Ignoring attack-path/criticality relevance.** A small anomaly in an isolated, non-critical component is not equivalent to the same anomaly on a designated-critical path — use the criticality override (Q6) explicitly rather than letting a low raw score understate it.

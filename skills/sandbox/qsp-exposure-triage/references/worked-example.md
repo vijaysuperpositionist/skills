@@ -41,10 +41,20 @@ No criticality override applied in this example (component not pre-designated cr
 
 ## Score
 
+**Magnitude, per category, before combining:**
+
+| Category | Reading | Band |
+|---|---|---|
+| Execution-timing | 40x baseline duration | High (30) — >10x band |
+| Resource-utilization | CPU 98% vs. ~35% baseline (~2.8x), memory not reclaimed across GC cycles | High (30) — the non-reclaimed-growth clause, not the raw CPU ratio alone |
+| Network/egress metadata | Contact with a novel, undocumented endpoint (`telemetry-aggregate-sync.net`); no entropy/DGA pattern observed in this scenario, and no evidence its registration postdates the deviation by only days | Medium (15) — novel undocumented endpoint, but the two High-tier extra red flags aren't present here |
+
+**Combination rule applied:** Magnitude = highest of the three = **30** (execution-timing and resource-utilization tie at High; network stays at Medium and doesn't add on top).
+
 | Factor | Points | Why |
 |---|---|---|
 | Corroboration breadth | 40 | 3 independent categories, same trigger/window |
-| Magnitude | 30 | Severe band: 40x timing, pegged CPU, undocumented egress endpoint |
+| Magnitude | 30 | Highest per-category band among the three (execution-timing and resource-utilization both High) — see derivation above |
 | Trigger specificity & trajectory | 30 | Narrow, specific trigger + growing volume |
 | **Total** | **100** | |
 
