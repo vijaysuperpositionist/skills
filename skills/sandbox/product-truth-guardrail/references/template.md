@@ -40,7 +40,7 @@ This document records what is known, what is proposed, and what remains explicit
 
 **Does not prove:** [what it doesn't establish — be explicit about the gap between what ran and what's being claimed]
 
-## 6. Proposed / Future Architecture — PROPOSED / TO BE VALIDATED
+## 6. Proposed / Future Architecture — PROPOSED
 
 ```
 [diagram or description]
@@ -52,7 +52,7 @@ Not deployed. [What this represents and what would need to happen to validate it
 
 | Claim | Status | Evidence | Safe external wording |
 |---|---|---|---|
-| [claim] | CURRENT / PILOT-TO-VALIDATE / PROPOSED / VALIDATION REQUIRED / FUTURE-NOT-PROMISED | [what supports this status] | [exact wording safe to use externally] |
+| [claim] | one of: CURRENT / DEMONSTRATED &#124; PILOT / TO VALIDATE &#124; PROPOSED &#124; VALIDATION REQUIRED &#124; FUTURE / NOT PROMISED | [what supports this status] | [exact wording safe to use externally] |
 
 ## 8. Forbidden Claims
 

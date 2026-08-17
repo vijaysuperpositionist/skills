@@ -1,6 +1,6 @@
 ---
 name: product-truth-guardrail
-description: "Use before writing a pilot proposal, investor deck, customer-facing architecture doc, technical positioning, or scientific/technical paper for a product still in active development — anywhere claims need to stay strictly bounded to what's actually been demonstrated. Also use when the user says things like \"don't overclaim,\" \"what can we actually say,\" \"is this validated or just proposed,\" \"separate tested from proposed,\" \"claims register,\" \"before this goes to [a customer/investor/technical reviewer],\" or asks to audit existing product materials for contradictions or overclaiming. Creates and maintains `.agents/product-truth.md` — a project-local document (never committed to a shared, forkable, or publicly-reviewed repository) capturing what's CURRENT/DEMONSTRATED, PILOT/TO VALIDATE, PROPOSED, VALIDATION REQUIRED, or FUTURE/NOT PROMISED — and requires every downstream artifact (sales material, technical docs, customer proposals, papers) to be checked against it before generation, not written from memory or optimism. Not a QA or testing tool; it doesn't validate claims itself, it stops unvalidated claims from being stated as validated."
+description: "Use before writing a pilot proposal, investor deck, customer-facing architecture doc, technical positioning, or scientific/technical paper for a product still in active development — anywhere claims need to stay strictly bounded to what's actually been demonstrated. Also use when the user says things like \"don't overclaim,\" \"what can we actually say,\" \"is this validated or just proposed,\" \"separate tested from proposed,\" \"claims register,\" \"before this goes to [a customer/investor/technical reviewer],\" or asks to audit existing product materials for contradictions or overclaiming. Creates and maintains `.agents/product-truth.md` — a project-local document (never committed to a shared, forkable, or publicly-reviewed repository) capturing what's CURRENT / DEMONSTRATED, PILOT / TO VALIDATE, PROPOSED, VALIDATION REQUIRED, or FUTURE / NOT PROMISED — and requires every downstream artifact (sales material, technical docs, customer proposals, papers) to be checked against it before generation, not written from memory or optimism. Not a QA or testing tool; it doesn't validate claims itself, it stops unvalidated claims from being stated as validated."
 metadata:
   version: 1.0.0
 ---
@@ -26,16 +26,16 @@ Look for `.agents/product-truth.md`. If it exists, read it in full before doing 
 
 **If it exists:** summarize its current claims register and unresolved decisions back to the user, then proceed to whatever task prompted this skill — informed by, and bounded by, what's recorded.
 
-**If it doesn't exist:** offer to draft one. Two paths:
-1. **Auto-draft from available material** (recommended when there's existing code, docs, test results, or prior conversation to draw from): read what's available, draft a first pass, then interview the user on gaps and corrections — never invent a claim's status; if evidence for a claim isn't visible in what you read, ask, don't assume.
-2. **Start from scratch**, section by section, conversationally.
+**If it doesn't exist:** first read [`references/template.md`](references/template.md) in full — it defines the exact section structure and canonical status vocabulary both paths below must produce. Do not draft from memory of this skill's description; use the template itself. Then offer to draft one. Two paths:
+1. **Auto-draft from available material** (recommended when there's existing code, docs, test results, or prior conversation to draw from): read what's available, draft a first pass following `references/template.md`'s section structure, then interview the user on gaps and corrections — never invent a claim's status; if evidence for a claim isn't visible in what you read, ask, don't assume.
+2. **Start from scratch**, section by section, conversationally, filling in `references/template.md` directly rather than reinventing its structure.
 
 ### Step 2 — The sections every product-truth document needs
 
 1. **Product identity** — a one-sentence and a one-paragraph description.
 2. **Core problem** the product addresses.
 3. **Product boundary** — what it is, and what it explicitly is not or never does. If the product is one of several related offerings, state plainly that it's independent and must not be merged with, described as part of, or scored/correlated alongside the others in any generated content.
-4. **Current capabilities** — CURRENT/DEMONSTRATED only. Be strict here: "we ran this once, informally" and "this is production-validated" are different claims: label accordingly.
+4. **Current capabilities** — CURRENT / DEMONSTRATED only. Be strict here: "we ran this once, informally" and "this is production-validated" are different claims: label accordingly.
 5. **Tested implementation/architecture**, if applicable — what was actually run, and an explicit "proves / does not prove" split for each test. A test proving a data-transport path works is not evidence the analysis at the other end works — call out exactly what a given test does and doesn't establish, don't let a single successful run cover a broader claim.
 6. **Proposed/future architecture**, if applicable — clearly and permanently labeled, never merged into the tested-architecture section even in later revisions.
 7. **Claims register** — a table: claim / status / evidence / safe external wording. This is the section every other artifact gets checked against.
